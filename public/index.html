@@ -6,9 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Lab 1</title>
 	<link rel="stylesheet" href="style.css">
-	<script src="//unpkg.com/alpinejs" defer></script>
+	<!-- <script src="//unpkg.com/alpinejs" defer></script> -->
+	<script src="js/sidebar.js"></script>
 </head>
-<body class="relative">
+<body class="relative overflow-x-hidden">
 	<nav class="relative flex justify-between items-center bg-green-300 px-4 z-50">
 		<a href="/" class="flex items-center justify-center space-x-3 hover:bg-white py-1 w-32">
 			<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -52,7 +53,7 @@
 				</svg>
 			</a>
 
-			<div class="hover:cursor-pointer" @click="show = !show">
+			<div class="hover:cursor-pointer" onclick="openNav()" @click="show = !show">
 				<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 					<line x1="4" y1="6" x2="20" y2="6"></line>
@@ -61,31 +62,38 @@
 				</svg>
 			</div>
 
-			<div x-show="show" class="absolute right-0 top-full" style="display: none;" @click.away="show=false">
-				<ul class="flex flex-col items-end min-h-[300px] border border-black bg-gradient-to-t from-gray-300 to-gray-100">
-					<li class="w-full">
-						<a class="block py-1 px-2 text-right hover:bg-white" href="/">Home</a>
-					</li>
-		
-					<li class="w-full">
-						<a class="block py-1 px-2 text-right hover:bg-white" href="/forums">Forums</a>
-					</li>
-		
-					<li class="w-full">
-						<a class="block py-1 px-2 text-right hover:bg-white" href="/XML-JSON">XML-JSON</a>
-					</li>
-		
-					<li class="w-full">
-						<a class="block py-1 px-2 text-right hover:bg-white" href="/javascript">JAVASCRIPT</a>
-					</li>
-		
-					<li class="w-full">
-						<a class="block py-1 px-2 text-right hover:bg-white" href="/research">RESEARCH</a>
-					</li>
-				</ul>
-			</div>
 		</div>
 	</nav>
+	<div id="sidebar" x-show="show" class="absolute w-64 -right-64 top-0 bottom-0 bg-black transition-all duration-500 z-50" @click.away="show=false">
+		<div class="text-white">
+			<button class="text-right w-full block px-2 text-xl font-semibold hover:bg-gray-500"
+				onclick="closeNav()"
+			>
+				&times;
+			</button>
+			<ul class="flex flex-col items-end min-h-[300px]">
+				<li class="w-full">
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/">Home</a>
+				</li>
+	
+				<li class="w-full">
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/forums">Forums</a>
+				</li>
+	
+				<li class="w-full">
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/XML-JSON">XML-JSON</a>
+				</li>
+	
+				<li class="w-full">
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/javascript">JAVASCRIPT</a>
+				</li>
+	
+				<li class="w-full">
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/research">RESEARCH</a>
+				</li>
+			</ul>
+		</div>
+	</div>
 
 	<main>
 		<div class="relative w-full grid place-items-center py-16 bg-black overflow-hidden">
