@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.flipbox {
+	position: relative;
+	perspective: 1000px;
+}
+
+.flipbox-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+}
+
+.flipbox-front, .flipbox-back {
+	
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+
+.flipbox:hover .flipbox-inner {
+	transform: rotateY(180deg);
+}
+
+.flipbox-front {
+	position: relative;
+}
+
+.flipbox-back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: rotateY(180deg);
+}
