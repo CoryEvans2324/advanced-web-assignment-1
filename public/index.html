@@ -9,7 +9,7 @@
 	<!-- <script src="//unpkg.com/alpinejs" defer></script> -->
 	<script src="js/sidebar.js"></script>
 </head>
-<body class="relative overflow-x-hidden">
+<body class="relative min-h-screen overflow-x-hidden">
 	<nav class="relative flex justify-between items-center bg-green-300 px-4 z-50">
 		<a href="/" class="flex items-center justify-center space-x-3 hover:bg-white py-1 w-32">
 			<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -36,7 +36,7 @@
 			</li>
 
 			<li>
-				<a class="h-full block py-1 px-2 hover:bg-white" href="/javascript">JAVASCRIPT</a>
+				<a class="h-full block py-1 px-2 hover:bg-white" href="javascript.html">JAVASCRIPT</a>
 			</li>
 
 			<li>
@@ -85,7 +85,7 @@
 				</li>
 	
 				<li class="w-full">
-					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/javascript">JAVASCRIPT</a>
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="javascript.html">JAVASCRIPT</a>
 				</li>
 	
 				<li class="w-full">
@@ -107,28 +107,78 @@
 		<div class="grid grid-cols-1 md:grid-cols-2">
 			<div class="bg-yellow-400 flex flex-col space-y-3 p-2">
 				<h1 class="text-2xl">BIO</h1>
-				<div class="grid place-items-center">
-					<svg xmlns="http://www.w3.org/2000/svg" class="w-36" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-						<circle cx="12" cy="12" r="11"></circle>
-						<circle cx="12" cy="8" r="4"></circle>
-						<path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-					</svg>
+				<div class="flex flex-col md:flex-row md:space-x-2">
+					<div class="grid place-items-center">
+						<svg xmlns="http://www.w3.org/2000/svg" class="w-36" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+							<circle cx="12" cy="12" r="11"></circle>
+							<circle cx="12" cy="8" r="4"></circle>
+							<path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+						</svg>
+					</div>
+					<div>
+						<h2>Include a short introduction about yourself, personal interests, hobbies, why are you taking this paper and what you hope to get out of it.</h2>
+						<p>
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste accusamus officiis vel deserunt voluptate minima molestias totam! Ducimus nisi consequuntur voluptatibus? Illum cum laborum nihil dolor molestias ipsam, laudantium odio.
+
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas sit necessitatibus optio vel id enim qui velit at voluptatibus dolorem sint quos corrupti, aspernatur maxime corporis harum aliquam? Laboriosam, asperiores.
+						</p>
+					</div>
 				</div>
-				<h2>Include a short introduction about yourself, personal interests, hobbies, why are you taking this paper and what you hope to get out of it.</h2>
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias qui molestiae necessitatibus praesentium omnis, placeat, earum inventore commodi numquam labore sed vero autem architecto cupiditate fuga! Voluptatibus harum nisi dignissimos iusto asperiores non voluptatum. Laborum impedit explicabo eaque, earum facilis nihil minima quo numquam sit, placeat quasi itaque nostrum enim eos doloribus dignissimos, error saepe totam dolores repellendus nemo labore? Libero, ipsam at! Iure eveniet excepturi natus exercitationem esse commodi, sequi illo voluptas, non veritatis dignissimos eos aliquam ex recusandae.
-				</p>
 			</div>
 			<div class="bg-gradient-to-b from-red-300 to-red-500 p-2">
 				<h1 class="text-2xl font-semibold">MY WEB TECHNOLOGIES</h1>
 				<h2 class="text-lg text-blue-600">TOP 5 WEB TECHNOLOGIES</h2>
-				<ul>
-					<li>1. Web Hosting</li>
-					<li>2. Web Design</li>
-					<li>3. Databases</li>
-					<li>4. VSCode</li>
-					<li>5. <a href="https://tailwindcss.com/" target="about:blank" class="underline">Tailwindcss</a></li>
+				<ul class="ml-4">
+					<li>
+						<div class="flex space-x-2">
+							<span>1.</span>
+							<h1><a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" class="underline">tailwindcss</a></h1>
+						</div>
+						<div class="ml-4">
+							<p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+						</div>
+					</li>
+					<li>
+						<div class="flex space-x-2">
+							<span>2.</span>
+							<h1>
+								<a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener noreferrer" class="underline">Flask</a>
+							</h1>
+						</div>
+						<div class="ml-4">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+						</div>
+					</li>
+					<li>
+						<div class="flex space-x-2">
+							<span>3.</span>
+							<h1>
+								<a href="https://alpinejs.dev" target="_blank" rel="noopener noreferrer" class="underline">AlpineJS</a>
+							</h1>
+						</div>
+						<div class="ml-4">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+						</div>
+					</li>
+					<li>
+						<div class="flex space-x-2">
+							<span>4.</span>
+							<h1>Web hosting</h1>
+						</div>
+						<div class="ml-4">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+						</div>
+					</li>
+					<li>
+						<div class="flex space-x-2">
+							<span>5.</span>
+							<h1>Web hosting</h1>
+						</div>
+						<div class="ml-4">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+						</div>
+					</li>
 				</ul>
 			</div>
 		</div>
