@@ -106,7 +106,7 @@
 				<button id="demo4-btn" onclick="viewPage('demo4')" class="px-2 border border-gray-500 rounded-sm">DEMO 4</button>
 			</div>
 
-			<div class="col-span-2 grid place-items-center flex-1">
+			<div class="col-span-2 grid place-items-center p-1 flex-1">
 				<div id="demo1" style="display: block;" class="">
 					<!-- Slideshow -->
 					<div class="flex justify-center items-center">
@@ -130,18 +130,32 @@
 								<polyline points="9 6 15 12 9 18"></polyline>
 							</svg>
 						</button>
-
-						<script>slideShowInit()</script>
 					</div>
 				</div>
 				
-				<div id="demo2" style="display: none;" class="bg-sky-600">
-					<!-- Search funtion -->
-					<h1 class="text-2xl">Demo 2</h1>
+				<div id="demo2" style="display: none;" class="w-full h-full">
+					<input type="text" onkeyup="shopSearchOnChange(this)" placeholder="search" class="px-4 py-1 mb-4 border-b border-black w-full focus:outline-none">
+					<div id="shop-search-items" class="grid gap-4 grid-cols-1 md:grid-cols-2 2xl:grid-cols-4">
+					</div>
+
+					<script>loadShopItems()</script>
 				</div>
 
-				<div id="demo3" style="display: none;" class="bg-sky-300">
-					<h1 class="text-2xl">Demo 3</h1>
+				<div id="demo3" style="display: none;" class="w-full h-full">
+					<h1 class="text-lg font-semibold capitalize">Web page customisation</h1>
+					<div class="flex">
+						<div class="grid grid-cols-2 gap-2">
+							<label for="bg-color">Background Color:</label>
+							<input type="color" name="bg-color" id="bg-color" value="#ffffff" onchange="bg_color_change(this.value)">
+	
+							<label for="doc-font-size">Font Size:</label>
+							<input class="w-16 border-b border-black bg-transparent py-1 px-2 focus:outline-none"
+								type="number" name="doc-font-size" id="doc-font-size"
+								value="16"
+								onchange="doc_font_size_change(this.value)"
+							>
+						</div>
+					</div>
 				</div>
 
 				<div id="demo4" style="display: none;" class="bg-lime-500">
@@ -150,5 +164,8 @@
 			</div>
 		</div>
 	</main>
+	<script>
+		viewPage('demo3')
+	</script>
 </body>
 </html>
