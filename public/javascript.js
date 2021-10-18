@@ -122,3 +122,51 @@ const bg_color_change = (color) => {
 const doc_font_size_change = (font_size) => {
 	document.documentElement.style.fontSize = font_size + 'px'
 }
+
+
+// USER ACCOUNTS
+const allAccounts = [{
+	user: 'admin',
+	pass: '1234'
+}]
+
+const currentUserLocalStorageKey = 'currentUser'
+
+const setUser = (u) => {
+	window.localStorage.setItem(currentUserLocalStorageKey, JSON.stringify(u))
+}
+
+const getUser = () => {
+	window.localStorage.getItem(currentUserLocalStorageKey)
+}
+
+const login = (username, password) => {
+	let userList = allAccounts.filter(obj => obj.user === username)
+	if (userList.length == 0) {
+		alert(`No user with username ${username} found.`)
+		return false
+	}
+
+	let user = userList[0]
+	if (user.pass !== password) {
+		alert(`Sign in failed. Password incorrect.`)
+		return false
+	}
+
+	setUser(user)
+	alert(`Signed in as ${user.user}`)
+
+	return true
+}
+
+const logout = () => {
+	setUser(null)
+}
+
+function onSignInFormSubmit(event, username_id, password_id) {
+	event.preventDefault()
+
+	let username = document.querySelector(username_id).value
+	let password = document.querySelector(password_id).value
+	var res = login(username, password)
+}
