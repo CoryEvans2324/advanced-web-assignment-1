@@ -90,142 +90,137 @@
 		</div>
 
 		<main>
-			<div class="relative w-full grid place-items-center py-16 bg-black shadow overflow-hidden">
-				<img src="images/code-background.png" class="absolute w-full inset-0 filter blur-sm object-cover opacity-60" />
-				<div class="relative border-2 border-white text-white px-16 mx-4 py-4 rounded flex flex-col space-y-3 items-center">
-					<h1 class="text-center text-xl">Advanced Internet and Web Learning Portfolio</h1>
-					<h1 class="text-center text-3xl font-semibold">I am Cory Evans</h1>
-					<h2 class="text-center">And I'm a Web Developer</h2>
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+				<div class="col-span-1 h-16 mx-auto sm:mx-4 grid grid-cols-2 sm:grid-cols-2 gap-2">
+					<button id="demo1-btn" onclick="viewPage('demo1')" class="px-2 border border-gray-500 rounded-sm bg-yellow-500">HTML Form</button>
+					<button id="demo2-btn" onclick="viewPage('demo2')" class="px-2 border border-gray-500 rounded-sm">Google Form</button>
+					<button id="demo3-btn" style="display: none;"></button>
+					<button id="demo4-btn" style="display: none;"></button>
 				</div>
-			</div>
-			<div class="grid gap-4 md:gap-8 px-4 py-8 grid-cols-1 md:grid-cols-2 bg-gray-200">
-				<div class="relative">
-					<div class="absolute inset-0 bg-blue-600 rounded rotate-3 animate-wiggle blur-sm opacity-40"></div>
-					<div class="absolute inset-0 bg-blue-600 rounded rotate-3 animate-wiggle"></div>
-					<div class="relative w-full h-full flex flex-col space-y-3 p-2 shadow rounded bg-white">
-						<h1 class="text-2xl font-semibold">BIO</h1>
-						<div class="flex flex-col md:flex-row md:space-x-2">
-							<div class="grid place-items-center">
-								<svg xmlns="http://www.w3.org/2000/svg" class="w-36" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-									<circle cx="12" cy="12" r="11"></circle>
-									<circle cx="12" cy="8" r="4"></circle>
-									<path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-								</svg>
+
+				<div class="col-span-2 grid place-items-center p-1 flex-1">
+					<div id="demo1" class="w-full h-full">
+						<!-- html form -->
+						<form class="flex flex-col space-y-4">
+							<div class="grid sm:grid-cols-2">
+								<div class="flex flex-col">
+									<label for="first-name">First Name</label>
+									<input
+										class="mx-2 px-2 py-1 border-b border-black placeholder-shown:italic focus:outline-none"
+										placeholder="John"
+										type="text" name="first-name" id="first-name">
+								</div>
+								<div class="flex flex-col">
+									<label for="last-name">Last Name</label>
+									<input 
+										class="mx-2 px-2 py-1 border-b border-black placeholder-shown:italic focus:outline-none"
+										placeholder="Doe"
+										type="text" name="last-name" id="last-name">
+								</div>
 							</div>
-							<div>
-								<h2>Include a short introduction about yourself, personal interests, hobbies, why are you taking this paper and what you hope to get out of it.</h2>
-								<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste accusamus officiis vel deserunt voluptate minima molestias totam! Ducimus nisi consequuntur voluptatibus? Illum cum laborum nihil dolor molestias ipsam, laudantium odio.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="relative">
-					<div class="absolute inset-0 bg-purple-600 rounded -rotate-3 animate-wiggle blur-sm opacity-40"></div>
-					<div class="absolute inset-0 bg-purple-600 rounded -rotate-3 animate-wiggle"></div>
-					<div class="relative w-full h-full p-2 shadow rounded bg-white">
-						<h1 class="text-2xl font-semibold">MY WEB TECHNOLOGIES</h1>
-						<h2 class="text-lg text-blue-600">TOP 5 WEB TECHNOLOGIES</h2>
-						<ul class="ml-4">
-							<li>
-								<div class="flex space-x-2">
-									<span>1.</span>
-									<h1><a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" class="underline">tailwindcss</a></h1>
+							<div class="flex flex-col space-y-1">
+								<label for="address-line-1">Address</label>
+								<input type="text" name="address-line-1" id="address-line-1"
+									placeholder="501 Gloucester St"
+									class="mx-2 px-2 py-1 border-b border-black placeholder-shown:italic focus:outline-none"
+								>
+								
+								<div class="grid gap-1 sm:grid-cols-2">
+									<div class="flex flex-col">
+										<label for="address-city">Town / City</label>
+										<input type="text" name="address-city" id="address-city"
+											placeholder="Napier"
+											class="mx-2 px-2 py-1 border-b border-black placeholder-shown:italic focus:outline-none"
+										>
+									</div>
+
+									<div class="flex flex-col">
+										<label for="address-postcode">Postcode</label>
+										<input type="number" name="address-postcode" id="address-postcode"
+											placeholder="4112"
+											class="mx-2 px-2 py-1 border-b border-black placeholder-shown:italic focus:outline-none"
+										>
+									</div>
 								</div>
-								<div class="ml-4">
-									<p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
-								</div>
-							</li>
-							<li>
-								<div class="flex space-x-2">
-									<span>2.</span>
-									<h1>
-										<a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener noreferrer" class="underline">Flask</a>
-									</h1>
-								</div>
-								<div class="ml-4">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-								</div>
-							</li>
-							<li>
-								<div class="flex space-x-2">
-									<span>3.</span>
-									<h1>
-										<a href="https://alpinejs.dev" target="_blank" rel="noopener noreferrer" class="underline">AlpineJS</a>
-									</h1>
-								</div>
-								<div class="ml-4">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-								</div>
-							</li>
-							<li>
-								<div class="flex space-x-2">
-									<span>4.</span>
-									<h1>Web hosting</h1>
-								</div>
-								<div class="ml-4">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-								</div>
-							</li>
-							<li>
-								<div class="flex space-x-2">
-									<span>5.</span>
-									<h1>Web hosting</h1>
-								</div>
-								<div class="ml-4">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="bg-white shadow px-2 py-4">
-				<h1 class="text-xl font-semibold">MY WEB DEVELOPMENT COMPENTENCES</h1>
-				<div class="mx-4 mt-4 flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
-					<div class="md:flex-1 flipbox">
-						<div class="flipbox-inner">
-							<div class="flipbox-front bg-blue-300 border-2 border-blue-500 p-4 rounded-sm flex justify-around items-center md:flex-col">
-								<h1>Mark-Up (HTML5)</h1>
-								<img class="h-32" src="images/130px-HTML5_logo_and_wordmark.svg.png" alt="" />
-							</div>
-							<div class="flipbox-back bg-blue-300 border-2 border-blue-500 p-4 rounded-sm">this is epic</div>
-						</div>
-					</div>
-					<div class="md:flex-1 flipbox">
-						<div class="flipbox-inner">
-							<div class="flipbox-front bg-blue-300 border-2 border-blue-500 p-4 rounded-sm flex justify-around items-center md:flex-col">
-								<h1>Styling (CSS)</h1>
-								<img class="h-32" src="images/120px-CSS3_logo_and_wordmark.svg.png" alt="" />
 							</div>
 
-							<div class="flipbox-back bg-blue-300 border-2 border-blue-500 p-4 rounded-sm"></div>
-						</div>
-					</div>
-					<div class="md:flex-1 flipbox">
-						<div class="flipbox-inner">
-							<div class="flipbox-front bg-blue-300 border-2 border-blue-500 p-4 rounded-sm flex justify-around items-center md:flex-col">
-								<h1>Javascript</h1>
-								<img class="h-32" src="images/js-logo.png" alt="" />
+							<div class="flex flex-col">
+								<label>Gender</label>
+								<ul class="flex space-x-4">
+									<li>
+										<input type="radio" name="gender" value="male" id="gender-male">
+										<label for="gender-male">Male</label>
+									</li>
+									<li>
+										<input type="radio" name="gender" value="female" id="gender-female">
+										<label for="gender-female">Female</label>
+									</li>
+									<li>
+										<input type="radio" name="gender" value="neutral" id="gender-neutral">
+										<label for="gender-neutral">Neutral</label>
+									</li>
+								</ul>
 							</div>
-							<div class="flipbox-back bg-blue-300 border-2 border-blue-500 p-4 rounded-sm"></div>
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<div class="bg-gray-200 px-2 py-4">
-				<h1 class="text-2xl font-semibold">STATEMENT OF AUTHENTICITY</h1>
-				<div class="ml-4 mt-2 flex flex-col space-y-3">
-					<p>I confirm that</p>
-					<p>This is an original assessment and is entirely my own work.</p>
-					<p>It contains no material previously published or written by another person or myself expect where due acknowledgement is made in the text.</p>
-					<p>No material which is to a substantial extent, has been submitted for any other academic course, is included without acknowledgement.</p>
+							<div class="flex flex-col">
+								<label>Mobile Phone Type</label>
+								<ul class="flex space-x-4">
+									<li>
+										<input type="radio" name="phone-type" value="windows" id="phone-windows">
+										<label for="phone-windows">Windows</label>
+									</li>
+									<li>
+										<input type="radio" name="phone-type" value="apple" id="phone-apple">
+										<label for="phone-apple">Apple</label>
+									</li>
+									<li>
+										<input type="radio" name="phone-type" value="android" id="phone-android">
+										<label for="phone-android">Android</label>
+									</li>
+									<li>
+										<input type="radio" name="phone-type" value="other" id="phone-other">
+										<label for="phone-other">Other</label>
+									</li>
+								</ul>
+							</div>
+
+							<div class="flex flex-col">
+								<label for="mobile-provider">Mobile Provider</label>
+								<select name="mobile-provider" id="mobile-provider"
+								class="mx-2 px-2 py-1 border-b border-black placeholder-shown:italic focus:outline-none"
+								>
+									<option value="spark">Spark</option>
+									<option value="vodafone">Vodafone</option>
+									<option value="2degrees">2Degrees</option>
+									<option value="skinny">Skinny</option>
+									<option value="warehouse">Warehouse Mobile</option>
+									<option value="compass">Compass</option>
+									<option value="blue_sky">Blue Sky</option>
+									<option value="slingshot">Slingshot</option>
+								</select>
+							</div>
+
+							<div class="flex flex-col">
+								<label for="study-reason">Do you use your phone for study?</label>
+								<textarea name="study-reason" id="study-reason" rows="4" placeholder="please explain..."
+									class="focus:outline-none border border-black rounded-sm mx-2 p-2"
+								></textarea>
+							</div>
+
+							<div class="grid sm:grid-cols-2 gap-2">
+								<button class="flex-1 py-2 rounded hover:shadow font-semibold text-blue-600 " type="reset">Reset</button>
+								<button class="flex-1 py-2 rounded shadow font-semibold bg-blue-500 text-white hover:bg-blue-400" type="submit">Submit</button>
+							</div>
+						</form>
+					</div>
+					<div id="demo2"></div>
+
+					<div id="demo3" style="display: none;"></div>
+					<div id="demo4" style="display: none;"></div>
 				</div>
-			</div>
 		</main>
 
-		<footer class="py-2 bg-blue-500">
+		<footer class="absolute bottom-0 left-0 right-0 py-2 bg-blue-500">
 			<div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
 				<div class="flex items-center justify-center space-x-1">
 					<a href="#" class="hover:text-white">
