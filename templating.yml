@@ -1,0 +1,7 @@
+dest: public
+src: templates
+
+templates: 
+  index.html:
+  forms.html:
+  javascript.html:
