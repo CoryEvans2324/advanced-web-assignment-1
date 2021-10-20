@@ -23,7 +23,12 @@ class Template():
     def render(self, jinja_env: Environment, dest_dir: str):
         tmpl = jinja_env.get_template(self.name)
         tmpl_data = self.env or {}
-        rt = tmpl.render(**tmpl_data)
+        try:
+            rt = tmpl.render(**tmpl_data)
+        except Exception as e:
+            print(f'{self} failed to render: {e}')
+            return
+
         with open(os.path.join(dest_dir, self.name), 'w') as f:
             f.write(rt)
 
@@ -51,18 +56,22 @@ jinja_env.trim_blocks = True
 jinja_env.lstrip_blocks = True
 
 
-def on_modified(event):
-
-    if not isinstance(event, DirModifiedEvent):
-        return
-
-    print('Rendering templates')
+def reload_all_templates():
     config = load_config()
     for t in config['templates']:
         t.render(jinja_env, config['dest'])
 
 
+def on_modified(event):
+    if not isinstance(event, DirModifiedEvent):
+        return
+
+    reload_all_templates()
+
+
 if __name__ == '__main__':
+    reload_all_templates()
+
     my_event_handler = PatternMatchingEventHandler(['*'])
     my_event_handler.on_modified = on_modified
 

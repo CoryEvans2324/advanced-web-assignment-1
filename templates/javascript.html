@@ -1,177 +1,83 @@
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Javascript</title>
-		<link rel="stylesheet" href="style.css" />
-		<script src="javascript.js"></script>
-	</head>
-	<body class="relative min-h-screen overflow-x-hidden">
-		<nav class="relative flex justify-between items-center bg-green-300 px-4 z-50">
-			<a href="/" class="flex items-center justify-center space-x-3 hover:bg-white py-1 w-32">
-				<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-					<circle cx="12" cy="12" r="9"></circle>
-					<line x1="3.6" y1="9" x2="20.4" y2="9"></line>
-					<line x1="3.6" y1="15" x2="20.4" y2="15"></line>
-					<path d="M11.5 3a17 17 0 0 0 0 18"></path>
-					<path d="M12.5 3a17 17 0 0 1 0 18"></path>
-				</svg>
-				<span>ITWD6.408</span>
-			</a>
-			<ul class="hidden md:flex">
-				<li>
-					<a class="h-full block py-1 px-2 hover:bg-white" href="/">Home</a>
-				</li>
+{% extends '_layout.html' %}
+{% block content %}
+<div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+	<div class="col-span-1 h-16 mx-auto sm:mx-4 grid grid-cols-2 sm:grid-cols-2 gap-2">
+		<button id="demo1-btn" onclick="viewPage('demo1')" class="px-2 border border-gray-500 rounded-sm bg-yellow-500">DEMO 1</button>
+		<button id="demo2-btn" onclick="viewPage('demo2')" class="px-2 border border-gray-500 rounded-sm">DEMO 2</button>
+		<button id="demo3-btn" onclick="viewPage('demo3')" class="px-2 border border-gray-500 rounded-sm">DEMO 3</button>
+		<button id="demo4-btn" onclick="viewPage('demo4')" class="px-2 border border-gray-500 rounded-sm">DEMO 4</button>
+	</div>
 
-				<li>
-					<a class="h-full block py-1 px-2 hover:bg-white" href="/forums">Forums</a>
-				</li>
-
-				<li>
-					<a class="h-full block py-1 px-2 hover:bg-white" href="/XML-JSON">XML-JSON</a>
-				</li>
-
-				<li>
-					<a class="h-full block py-1 px-2 hover:bg-white" href="javascript.html">JAVASCRIPT</a>
-				</li>
-
-				<li>
-					<a class="h-full block py-1 px-2 hover:bg-white" href="/research">RESEARCH</a>
-				</li>
-			</ul>
-
-			<div class="flex justify-end space-x-3 w-32" x-data="{show: false}">
-				<a href="/search">
-					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+	<div class="col-span-2 grid place-items-center p-1 flex-1">
+		<div id="demo1" style="display: block" class="">
+			<!-- Slideshow -->
+			<div class="flex justify-center items-center">
+				<button onclick="slideShowLeft()">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-						<circle cx="10" cy="10" r="7"></circle>
-						<line x1="21" y1="21" x2="15" y2="15"></line>
+						<polyline points="15 6 9 12 15 18"></polyline>
 					</svg>
-				</a>
-
-				<div class="hover:cursor-pointer" onclick="openNav()" @click="show = !show">
-					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-						<line x1="4" y1="6" x2="20" y2="6"></line>
-						<line x1="4" y1="12" x2="20" y2="12"></line>
-						<line x1="4" y1="18" x2="20" y2="18"></line>
-					</svg>
+				</button>
+				<div class="relative w-48 h-48 overflow-hidden">
+					<div id="slideshow" class="absolute top-0 bottom-0 flex flex-nowrap transition-all duration-200">
+						<img class="block w-48 h-48 px-2" src="images/tablets/tablet1.webp" alt="" />
+						<img class="block w-48 h-48 px-2" src="images/tablets/tablet2.webp" alt="" />
+						<img class="block w-48 h-48 px-2" src="images/tablets/tablet2.webp" alt="" />
+						<img class="block w-48 h-48 px-2" src="images/tablets/tablet3.webp" alt="" />
+					</div>
 				</div>
-			</div>
-		</nav>
-		<div id="sidebar" x-show="show" class="absolute w-64 -right-64 top-0 bottom-0 bg-black transition-all duration-500 z-50" @click.away="show=false">
-			<div class="text-white">
-				<button class="text-right w-full block px-2 text-xl font-semibold hover:bg-gray-500" onclick="closeNav()">&times;</button>
-				<ul class="flex flex-col items-end min-h-[300px]">
-					<li class="w-full">
-						<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/">Home</a>
-					</li>
-
-					<li class="w-full">
-						<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/forums">Forums</a>
-					</li>
-
-					<li class="w-full">
-						<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/XML-JSON">XML-JSON</a>
-					</li>
-
-					<li class="w-full">
-						<a class="block py-1 px-2 text-right hover:bg-gray-500" href="javascript.html">JAVASCRIPT</a>
-					</li>
-
-					<li class="w-full">
-						<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/research">RESEARCH</a>
-					</li>
-				</ul>
+				<button onclick="slideShowRight()">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<polyline points="9 6 15 12 9 18"></polyline>
+					</svg>
+				</button>
 			</div>
 		</div>
 
-		<main class="mt-4">
-			<div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
-				<div class="col-span-1 h-16 mx-auto sm:mx-4 grid grid-cols-2 sm:grid-cols-2 gap-2">
-					<button id="demo1-btn" onclick="viewPage('demo1')" class="px-2 border border-gray-500 rounded-sm bg-yellow-500">DEMO 1</button>
-					<button id="demo2-btn" onclick="viewPage('demo2')" class="px-2 border border-gray-500 rounded-sm">DEMO 2</button>
-					<button id="demo3-btn" onclick="viewPage('demo3')" class="px-2 border border-gray-500 rounded-sm">DEMO 3</button>
-					<button id="demo4-btn" onclick="viewPage('demo4')" class="px-2 border border-gray-500 rounded-sm">DEMO 4</button>
-				</div>
+		<div id="demo2" style="display: none" class="w-full h-full">
+			<input type="text" onkeyup="shopSearchOnChange(this)" placeholder="search" class="px-4 py-1 mb-4 border-b border-black w-full focus:outline-none" />
+			<div id="shop-search-items" class="grid gap-4 grid-cols-1 md:grid-cols-2 2xl:grid-cols-4"></div>
 
-				<div class="col-span-2 grid place-items-center p-1 flex-1">
-					<div id="demo1" style="display: block" class="">
-						<!-- Slideshow -->
-						<div class="flex justify-center items-center">
-							<button onclick="slideShowLeft()">
-								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-									<polyline points="15 6 9 12 15 18"></polyline>
-								</svg>
-							</button>
-							<div class="relative w-48 h-48 overflow-hidden">
-								<div id="slideshow" class="absolute top-0 bottom-0 flex flex-nowrap transition-all duration-200">
-									<img class="block w-48 h-48 px-2" src="images/tablets/tablet1.webp" alt="" />
-									<img class="block w-48 h-48 px-2" src="images/tablets/tablet2.webp" alt="" />
-									<img class="block w-48 h-48 px-2" src="images/tablets/tablet2.webp" alt="" />
-									<img class="block w-48 h-48 px-2" src="images/tablets/tablet3.webp" alt="" />
-								</div>
-							</div>
-							<button onclick="slideShowRight()">
-								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-									<polyline points="9 6 15 12 9 18"></polyline>
-								</svg>
-							</button>
-						</div>
-					</div>
+			<script>
+				loadShopItems();
+			</script>
+		</div>
 
-					<div id="demo2" style="display: none" class="w-full h-full">
-						<input type="text" onkeyup="shopSearchOnChange(this)" placeholder="search" class="px-4 py-1 mb-4 border-b border-black w-full focus:outline-none" />
-						<div id="shop-search-items" class="grid gap-4 grid-cols-1 md:grid-cols-2 2xl:grid-cols-4"></div>
+		<div id="demo3" style="display: none" class="w-full h-full">
+			<h1 class="text-lg font-semibold capitalize">Web page customisation</h1>
+			<div class="flex">
+				<div class="grid grid-cols-2 gap-2">
+					<label for="bg-color">Background Color:</label>
+					<input type="color" name="bg-color" id="bg-color" value="#ffffff" onchange="bg_color_change(this.value)" />
 
-						<script>
-							loadShopItems();
-						</script>
-					</div>
-
-					<div id="demo3" style="display: none" class="w-full h-full">
-						<h1 class="text-lg font-semibold capitalize">Web page customisation</h1>
-						<div class="flex">
-							<div class="grid grid-cols-2 gap-2">
-								<label for="bg-color">Background Color:</label>
-								<input type="color" name="bg-color" id="bg-color" value="#ffffff" onchange="bg_color_change(this.value)" />
-
-								<label for="doc-font-size">Font Size:</label>
-								<input class="w-16 border-b border-black bg-transparent py-1 px-2 focus:outline-none" type="number" name="doc-font-size" id="doc-font-size" value="16" onchange="doc_font_size_change(this.value)" />
-							</div>
-						</div>
-					</div>
-
-					<div id="demo4" style="display: none" class="w-full h-full">
-						<h1>User accounts</h1>
-						<form class="flex flex-col space-y-2"
-							onsubmit="onSignInFormSubmit(event, '#username', '#password')"
-						>
-							<div class="flex flex-col">
-								<label for="username">Username</label>
-								<input type="text" name="username" id="username" placeholder="admin"
-									class="border-b border-black px-2 py-1 placeholder-shown:italic focus:outline-none"
-								>
-							</div>
-							<div class="flex flex-col">
-								<label for="password">Password</label>
-								<input type="password" name="password" id="password" placeholder="password"
-									class="border-b border-black px-2 py-1 placeholder-shown:italic focus:outline-none"
-								>
-							</div>
-
-							<button type="submit" class="bg-blue-600 text-white font-semibold px-4 py-2 rounded shadow">Sign In</button>
-						</form>
-					</div>
+					<label for="doc-font-size">Font Size:</label>
+					<input class="w-16 border-b border-black bg-transparent py-1 px-2 focus:outline-none" type="number" name="doc-font-size" id="doc-font-size" value="16" onchange="doc_font_size_change(this.value)" />
 				</div>
 			</div>
-		</main>
-		<script>
-			viewPage("demo4");
-		</script>
-	</body>
-</html>
+		</div>
+
+		<div id="demo4" style="display: none" class="w-full h-full">
+			<h1>User accounts</h1>
+			<form class="flex flex-col space-y-2"
+				onsubmit="onSignInFormSubmit(event, '#username', '#password')"
+			>
+				<div class="flex flex-col">
+					<label for="username">Username</label>
+					<input type="text" name="username" id="username" placeholder="admin"
+						class="border-b border-black px-2 py-1 placeholder-shown:italic focus:outline-none"
+					>
+				</div>
+				<div class="flex flex-col">
+					<label for="password">Password</label>
+					<input type="password" name="password" id="password" placeholder="password"
+						class="border-b border-black px-2 py-1 placeholder-shown:italic focus:outline-none"
+					>
+				</div>
+
+				<button type="submit" class="bg-blue-600 text-white font-semibold px-4 py-2 rounded shadow">Sign In</button>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,283 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Lab 1</title>
-		<link rel="stylesheet" href="style.css" />
-		<script src="javascript.js"></script>
-	</head>
-	<body class="relative min-h-screen overflow-x-hidden">
-		<nav class="relative flex justify-between items-center bg-blue-500 text-white font-semibold px-4 z-50">
-			<a href="/" class="flex items-center justify-center space-x-3 hover:bg-white hover:text-blue-500 py-1 w-32">
-				<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-					<circle cx="12" cy="12" r="9"></circle>
-					<line x1="3.6" y1="9" x2="20.4" y2="9"></line>
-					<line x1="3.6" y1="15" x2="20.4" y2="15"></line>
-					<path d="M11.5 3a17 17 0 0 0 0 18"></path>
-					<path d="M12.5 3a17 17 0 0 1 0 18"></path>
-				</svg>
-				<span>ITWD6.408</span>
-			</a>
-			<ul class="hidden md:flex">
-				<li>
-					<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="/">Home</a>
-				</li>
-
-				<li>
-					<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="/forms.html">Forms</a>
-				</li>
-
-				<li>
-					<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="/XML-JSON">XML-JSON</a>
-				</li>
-
-				<li>
-					<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="javascript.html">JAVASCRIPT</a>
-				</li>
-
-				<li>
-					<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="/research">RESEARCH</a>
-				</li>
-			</ul>
-
-			<div class="flex justify-end space-x-3 w-32" x-data="{show: false}">
-				<a href="/search">
-					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+{% extends '_layout.html' %}
+{% block content %}
+<div class="relative w-full grid place-items-center py-16 bg-black shadow overflow-hidden">
+	<img src="images/code-background.png" class="absolute w-full inset-0 filter blur-sm object-cover opacity-60" />
+	<div class="relative border-2 border-white text-white px-16 mx-4 py-4 rounded flex flex-col space-y-3 items-center">
+		<h1 class="text-center text-xl">Advanced Internet and Web Learning Portfolio</h1>
+		<h1 class="text-center text-3xl font-semibold">I am Cory Evans</h1>
+		<h2 class="text-center">And I'm a Web Developer</h2>
+	</div>
+</div>
+<div class="grid gap-4 md:gap-8 px-4 py-8 grid-cols-1 md:grid-cols-2 bg-gray-200">
+	<div class="relative">
+		<div class="absolute inset-0 bg-blue-600 rounded rotate-3 animate-wiggle blur-sm opacity-40"></div>
+		<div class="absolute inset-0 bg-blue-600 rounded rotate-3 animate-wiggle"></div>
+		<div class="relative w-full h-full flex flex-col space-y-3 p-2 shadow rounded bg-white">
+			<h1 class="text-2xl font-semibold">BIO</h1>
+			<div class="flex flex-col md:flex-row md:space-x-2">
+				<div class="grid place-items-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-36" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-						<circle cx="10" cy="10" r="7"></circle>
-						<line x1="21" y1="21" x2="15" y2="15"></line>
-					</svg>
-				</a>
-
-				<div class="hover:cursor-pointer" onclick="openNav()" @click="show = !show">
-					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-						<line x1="4" y1="6" x2="20" y2="6"></line>
-						<line x1="4" y1="12" x2="20" y2="12"></line>
-						<line x1="4" y1="18" x2="20" y2="18"></line>
+						<circle cx="12" cy="12" r="11"></circle>
+						<circle cx="12" cy="8" r="4"></circle>
+						<path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
 					</svg>
 				</div>
-			</div>
-		</nav>
-		<div id="sidebar" x-show="show" class="absolute w-64 -right-64 top-0 bottom-0 bg-black transition-all duration-500 z-50">
-			<div class="text-white">
-				<button class="text-right w-full block px-2 text-xl font-semibold hover:bg-gray-500" onclick="closeNav()">&times;</button>
-				<ul class="flex flex-col items-end min-h-[300px]">
-					<li class="w-full">
-						<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/">Home</a>
-					</li>
-
-					<li class="w-full">
-						<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/forums">Forums</a>
-					</li>
-
-					<li class="w-full">
-						<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/XML-JSON">XML-JSON</a>
-					</li>
-
-					<li class="w-full">
-						<a class="block py-1 px-2 text-right hover:bg-gray-500" href="javascript.html">JAVASCRIPT</a>
-					</li>
-
-					<li class="w-full">
-						<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/research">RESEARCH</a>
-					</li>
-				</ul>
+				<div>
+					<h2>Include a short introduction about yourself, personal interests, hobbies, why are you taking this paper and what you hope to get out of it.</h2>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste accusamus officiis vel deserunt voluptate minima molestias totam! Ducimus nisi consequuntur voluptatibus? Illum cum laborum nihil dolor molestias ipsam, laudantium odio.</p>
+				</div>
 			</div>
 		</div>
-
-		<main>
-			<div class="relative w-full grid place-items-center py-16 bg-black shadow overflow-hidden">
-				<img src="images/code-background.png" class="absolute w-full inset-0 filter blur-sm object-cover opacity-60" />
-				<div class="relative border-2 border-white text-white px-16 mx-4 py-4 rounded flex flex-col space-y-3 items-center">
-					<h1 class="text-center text-xl">Advanced Internet and Web Learning Portfolio</h1>
-					<h1 class="text-center text-3xl font-semibold">I am Cory Evans</h1>
-					<h2 class="text-center">And I'm a Web Developer</h2>
-				</div>
-			</div>
-			<div class="grid gap-4 md:gap-8 px-4 py-8 grid-cols-1 md:grid-cols-2 bg-gray-200">
-				<div class="relative">
-					<div class="absolute inset-0 bg-blue-600 rounded rotate-3 animate-wiggle blur-sm opacity-40"></div>
-					<div class="absolute inset-0 bg-blue-600 rounded rotate-3 animate-wiggle"></div>
-					<div class="relative w-full h-full flex flex-col space-y-3 p-2 shadow rounded bg-white">
-						<h1 class="text-2xl font-semibold">BIO</h1>
-						<div class="flex flex-col md:flex-row md:space-x-2">
-							<div class="grid place-items-center">
-								<svg xmlns="http://www.w3.org/2000/svg" class="w-36" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-									<circle cx="12" cy="12" r="11"></circle>
-									<circle cx="12" cy="8" r="4"></circle>
-									<path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-								</svg>
-							</div>
-							<div>
-								<h2>Include a short introduction about yourself, personal interests, hobbies, why are you taking this paper and what you hope to get out of it.</h2>
-								<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste accusamus officiis vel deserunt voluptate minima molestias totam! Ducimus nisi consequuntur voluptatibus? Illum cum laborum nihil dolor molestias ipsam, laudantium odio.</p>
-							</div>
-						</div>
+	</div>
+	<div class="relative">
+		<div class="absolute inset-0 bg-purple-600 rounded -rotate-3 animate-wiggle blur-sm opacity-40"></div>
+		<div class="absolute inset-0 bg-purple-600 rounded -rotate-3 animate-wiggle"></div>
+		<div class="relative w-full h-full p-2 shadow rounded bg-white">
+			<h1 class="text-2xl font-semibold">MY WEB TECHNOLOGIES</h1>
+			<h2 class="text-lg text-blue-600">TOP 5 WEB TECHNOLOGIES</h2>
+			<ul class="ml-4">
+				<li>
+					<div class="flex space-x-2">
+						<span>1.</span>
+						<h1><a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" class="underline">tailwindcss</a></h1>
 					</div>
-				</div>
-				<div class="relative">
-					<div class="absolute inset-0 bg-purple-600 rounded -rotate-3 animate-wiggle blur-sm opacity-40"></div>
-					<div class="absolute inset-0 bg-purple-600 rounded -rotate-3 animate-wiggle"></div>
-					<div class="relative w-full h-full p-2 shadow rounded bg-white">
-						<h1 class="text-2xl font-semibold">MY WEB TECHNOLOGIES</h1>
-						<h2 class="text-lg text-blue-600">TOP 5 WEB TECHNOLOGIES</h2>
-						<ul class="ml-4">
-							<li>
-								<div class="flex space-x-2">
-									<span>1.</span>
-									<h1><a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" class="underline">tailwindcss</a></h1>
-								</div>
-								<div class="ml-4">
-									<p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
-								</div>
-							</li>
-							<li>
-								<div class="flex space-x-2">
-									<span>2.</span>
-									<h1>
-										<a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener noreferrer" class="underline">Flask</a>
-									</h1>
-								</div>
-								<div class="ml-4">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-								</div>
-							</li>
-							<li>
-								<div class="flex space-x-2">
-									<span>3.</span>
-									<h1>
-										<a href="https://alpinejs.dev" target="_blank" rel="noopener noreferrer" class="underline">AlpineJS</a>
-									</h1>
-								</div>
-								<div class="ml-4">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-								</div>
-							</li>
-							<li>
-								<div class="flex space-x-2">
-									<span>4.</span>
-									<h1>Web hosting</h1>
-								</div>
-								<div class="ml-4">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-								</div>
-							</li>
-							<li>
-								<div class="flex space-x-2">
-									<span>5.</span>
-									<h1>Web hosting</h1>
-								</div>
-								<div class="ml-4">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-								</div>
-							</li>
-						</ul>
+					<div class="ml-4">
+						<p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
 					</div>
-				</div>
-			</div>
-			<div class="bg-white shadow px-2 py-4">
-				<h1 class="text-xl font-semibold">MY WEB DEVELOPMENT COMPENTENCES</h1>
-				<div class="mx-4 mt-4 flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
-					<div class="md:flex-1 flipbox">
-						<div class="flipbox-inner">
-							<div class="flipbox-front bg-blue-300 border-2 border-blue-500 p-4 rounded-sm flex justify-around items-center md:flex-col">
-								<h1>Mark-Up (HTML5)</h1>
-								<img class="h-32" src="images/130px-HTML5_logo_and_wordmark.svg.png" alt="" />
-							</div>
-							<div class="flipbox-back bg-blue-300 border-2 border-blue-500 p-4 rounded-sm">this is epic</div>
-						</div>
+				</li>
+				<li>
+					<div class="flex space-x-2">
+						<span>2.</span>
+						<h1>
+							<a href="https://flask.palletsprojects.com/" target="_blank" rel="noopener noreferrer" class="underline">Flask</a>
+						</h1>
 					</div>
-					<div class="md:flex-1 flipbox">
-						<div class="flipbox-inner">
-							<div class="flipbox-front bg-blue-300 border-2 border-blue-500 p-4 rounded-sm flex justify-around items-center md:flex-col">
-								<h1>Styling (CSS)</h1>
-								<img class="h-32" src="images/120px-CSS3_logo_and_wordmark.svg.png" alt="" />
-							</div>
-
-							<div class="flipbox-back bg-blue-300 border-2 border-blue-500 p-4 rounded-sm"></div>
-						</div>
+					<div class="ml-4">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 					</div>
-					<div class="md:flex-1 flipbox">
-						<div class="flipbox-inner">
-							<div class="flipbox-front bg-blue-300 border-2 border-blue-500 p-4 rounded-sm flex justify-around items-center md:flex-col">
-								<h1>Javascript</h1>
-								<img class="h-32" src="images/js-logo.png" alt="" />
-							</div>
-							<div class="flipbox-back bg-blue-300 border-2 border-blue-500 p-4 rounded-sm"></div>
-						</div>
+				</li>
+				<li>
+					<div class="flex space-x-2">
+						<span>3.</span>
+						<h1>
+							<a href="https://alpinejs.dev" target="_blank" rel="noopener noreferrer" class="underline">AlpineJS</a>
+						</h1>
 					</div>
+					<div class="ml-4">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+					</div>
+				</li>
+				<li>
+					<div class="flex space-x-2">
+						<span>4.</span>
+						<h1>Web hosting</h1>
+					</div>
+					<div class="ml-4">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+					</div>
+				</li>
+				<li>
+					<div class="flex space-x-2">
+						<span>5.</span>
+						<h1>Web hosting</h1>
+					</div>
+					<div class="ml-4">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="bg-white shadow px-2 py-4">
+	<h1 class="text-xl font-semibold">MY WEB DEVELOPMENT COMPENTENCES</h1>
+	<div class="mx-4 mt-4 flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
+		<div class="md:flex-1 flipbox">
+			<div class="flipbox-inner">
+				<div class="flipbox-front bg-blue-300 border-2 border-blue-500 p-4 rounded-sm flex justify-around items-center md:flex-col">
+					<h1>Mark-Up (HTML5)</h1>
+					<img class="h-32" src="images/130px-HTML5_logo_and_wordmark.svg.png" alt="" />
 				</div>
+				<div class="flipbox-back bg-blue-300 border-2 border-blue-500 p-4 rounded-sm">this is epic</div>
 			</div>
-
-			<div class="bg-gray-200 px-2 py-4">
-				<h1 class="text-2xl font-semibold">STATEMENT OF AUTHENTICITY</h1>
-				<div class="ml-4 mt-2 flex flex-col space-y-3">
-					<p>I confirm that</p>
-					<p>This is an original assessment and is entirely my own work.</p>
-					<p>It contains no material previously published or written by another person or myself expect where due acknowledgement is made in the text.</p>
-					<p>No material which is to a substantial extent, has been submitted for any other academic course, is included without acknowledgement.</p>
+		</div>
+		<div class="md:flex-1 flipbox">
+			<div class="flipbox-inner">
+				<div class="flipbox-front bg-blue-300 border-2 border-blue-500 p-4 rounded-sm flex justify-around items-center md:flex-col">
+					<h1>Styling (CSS)</h1>
+					<img class="h-32" src="images/120px-CSS3_logo_and_wordmark.svg.png" alt="" />
 				</div>
+
+				<div class="flipbox-back bg-blue-300 border-2 border-blue-500 p-4 rounded-sm"></div>
 			</div>
-		</main>
-
-		<footer class="py-2 bg-blue-500">
-			<div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-				<div class="flex items-center justify-center space-x-1">
-					<a href="#" class="hover:text-white">
-						<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-							<path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
-						</svg>
-					</a>
-
-					<a href="#" class="hover:text-white">
-						<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-							<rect x="4" y="4" width="16" height="16" rx="2"></rect>
-							<line x1="8" y1="11" x2="8" y2="16"></line>
-							<line x1="8" y1="8" x2="8" y2="8.01"></line>
-							<line x1="12" y1="16" x2="12" y2="11"></line>
-							<path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
-						</svg>
-					</a>
-
-					<a href="#" class="hover:text-white">
-						<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-							<rect x="3" y="5" width="18" height="14" rx="4"></rect>
-							<path d="M10 9l5 3l-5 3z"></path>
-						</svg>
-					</a>
-
-					<a href="#" class="hover:text-white">
-						<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-							<path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z"></path>
-						</svg>
-					</a>
-
-					<a href="#" class="hover:text-white">
-						<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-							<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-							<rect x="4" y="4" width="16" height="16" rx="4"></rect>
-							<circle cx="12" cy="12" r="3"></circle>
-							<line x1="16.5" y1="7.5" x2="16.5" y2="7.501"></line>
-						</svg>
-					</a>
+		</div>
+		<div class="md:flex-1 flipbox">
+			<div class="flipbox-inner">
+				<div class="flipbox-front bg-blue-300 border-2 border-blue-500 p-4 rounded-sm flex justify-around items-center md:flex-col">
+					<h1>Javascript</h1>
+					<img class="h-32" src="images/js-logo.png" alt="" />
 				</div>
-
-				<div class="flex flex-col items-center justify-center">
-					<h1 class="text-center">&copy; 2021 Cory Evans</h1>
-				</div>
-				<div class="flex flex-col items-center justify-center">
-					<a class="hover:text-white font-semibold block text-center" href="/privacy-policy">Privacy Policy</a>
-				</div>
+				<div class="flipbox-back bg-blue-300 border-2 border-blue-500 p-4 rounded-sm"></div>
 			</div>
-		</footer>
-	</body>
-</html>
+		</div>
+	</div>
+</div>
+
+<div class="bg-gray-200 px-2 py-4">
+	<h1 class="text-2xl font-semibold">STATEMENT OF AUTHENTICITY</h1>
+	<div class="ml-4 mt-2 flex flex-col space-y-3">
+		<p>I confirm that</p>
+		<p>This is an original assessment and is entirely my own work.</p>
+		<p>It contains no material previously published or written by another person or myself expect where due acknowledgement is made in the text.</p>
+		<p>No material which is to a substantial extent, has been submitted for any other academic course, is included without acknowledgement.</p>
+	</div>
+</div>
+{% endblock %}
