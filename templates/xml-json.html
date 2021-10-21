@@ -1,10 +1,35 @@
 {% extends '_layout.html' %}
 
+{% macro nasa_item(title_var_name, pubdate_var_name, description_var_name, link_var_name) %}
+<div class="bg-white rounded shadow p-4">
+	<a
+		class="block"
+		href="{{ '${' + link_var_name + '}' }}"
+	>
+		<h1 class="font-semibold text-lg">{{ '${' + title_var_name + '}' }}</h1>
+		<span class="text-sm text-gray-600">{{ '${' + pubdate_var_name + '}' }}</span>
+		<p>{{ '${' + description_var_name + '}' }}</p>
+	</a>
+</div>
+{% endmacro %}
+
 {% block content %}
-XML-JSON page
-
-<div id="xml-data"></div>
-
+<div class="absolute inset-0 bg-gray-200"></div>
+<div class="m-4 relative max-w-7xl xl:mx-auto">
+	<div class="flex space-x-2 items-center">
+		<button
+		class="bg-blue-500 text-white font-semibold px-4 py-1 rounded shadow"
+		onclick="loadXML()"
+		>
+		Load RSS Feed
+		</button>
+		<a target="_blank" href="{{ CORS_PROXY }}" class="text-sm text-gray-700">Click Here to enable the CORS proxy.</a>
+	</div>
+	
+	<div id="rss-feed"
+		class="mt-4 grid gap-4"
+	></div>
+</div>
 <script>
 	function loadXML() {
 		let url = '{{ CORS_PROXY }}{{ XML_URL }}'
@@ -14,16 +39,44 @@ XML-JSON page
 		xhttp.onreadystatechange = function() {
 			// console.log(this, e)
 			if (this.readyState == 4 && this.status == 200) {
-				let data = this.responseText
-				console.log(data);
-				document.getElementById('xml-data').innerHTML = data
+				let items = this.responseXML.getElementsByTagName('item')
+
+				let doc = ''
+
+				for (let i = 0; i < items.length; i++) {
+					let nodes = items[i].children
+
+					let title, pubdate, description, link;
+					for (let j = 0; j < nodes.length; j++) {
+						let tagName = nodes[j].tagName
+						switch (tagName) {
+							case 'title':
+								title = nodes[j].innerHTML
+								break
+
+							case 'link':
+								link = nodes[j].innerHTML
+								break
+							
+							case 'description':
+								description = nodes[j].innerHTML
+								break
+							
+							case 'pubDate':
+								pubdate = nodes[j].innerHTML
+								break
+						}
+					}
+
+					doc += `{{ nasa_item('title', 'pubdate', 'description', 'link') }}`
+				}
+
+				document.getElementById('rss-feed').innerHTML = doc
 			}
 		}
 
 		xhttp.open('GET', url, true)
 		xhttp.send()
 	}
-
-	loadXML()
 </script>
 {% endblock %}

@@ -41,12 +41,14 @@ const hideAllPages = () => {
 	for (id of ids) {
 		document.querySelector(`#${id}`).style.display = 'none'
 		document.querySelector(`#${id}-btn`).classList.remove('bg-yellow-500')
+		document.querySelector(`#${id}-btn`).classList.add('bg-white')
 	}
 }
 const viewPage = (id) => {
 	hideAllPages()
 	document.querySelector(`#${id}`).style.display = 'block'
 	document.querySelector(`#${id}-btn`).classList.add('bg-yellow-500')
+	document.querySelector(`#${id}-btn`).classList.remove('bg-white')
 }
 
 const spacing = 12
