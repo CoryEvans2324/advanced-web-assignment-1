@@ -1,0 +1,13 @@
+{% macro apa_website(owner, date, title, url) %}
+<div class="flex flex-wrap mt-4 space-x-1 text-sm text-gray-700">
+	<span class="whitespace-nowrap">{{ owner }}</span>
+	<span class="whitespace-nowrap">{{ date }}</span>
+	<span class="whitespace-nowrap italic">{{ title }}</span>
+	<span class="whitespace-nowrap">
+		<a
+			class="underline text-blue-500 inline-block"
+			href="{{ url }}"
+		>{{ url }}</a>.
+	</span>
+</div>
+{% endmacro %}

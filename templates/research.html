@@ -1,0 +1,62 @@
+{% extends '_layout.html' %}
+{% from '_apa_reference.html' import apa_website %}
+{% block content %}
+<div class="flex flex-col items-center my-4">
+	<div class="w-full px-2 sm:px-4 flex flex-col space-y-6">
+		<div>
+			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-teal-500 mb-3">Creative Common (CC) Licenses</h3>
+			<ul class="mx-1 sm:mx-4 flex flex-col space-y-4 divide-y divide-gray-600">
+			{% for license in cc_licenses %}
+				<li class="{{ 'pt-4' if loop.index0 != 0 else ''}} flex flex-col">
+					<div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-1 items-baseline">
+						<img src="{{ license['img'] }}" alt="{{ license['title'] }}">
+						<h1 class="text-xl sm:text-3xl lg:text-4xl leading-none font-extrabold text-gray-900 tracking-tight">{{ license['title'] }}</h1>
+						<h2 class="sm:text-xl sm:leading-snug font-semibold tracking-wide text-gray-600 uppercase mb-3">({{ license['acronym'] }})</h2>
+					</div>
+					<p>
+						{{ license['desc'] }}
+					</p>
+				</li>
+			{% endfor %}
+			</ul>
+
+			{{ apa_website('Creative Commons', '(2021, October)', 'About The Licenses', 'https://creativecommons.org/licenses/') }}
+		</div>
+
+		<div>
+			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-blue-500 mb-3">Privacy Policy</h3>
+			<p class="bg-red-400 p-2">
+				describe what is a privacy policy? Create a short privacy policy to your website
+			</p>
+		</div>
+
+		<div>
+			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-red-500 mb-3">Search Engine Optimization (SEO)</h3>
+			<p class="bg-red-400 p-2">
+				describe 5 ways to improve the visibility of your website on search engine.
+			</p>
+		</div>
+
+		<div>
+			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-amber-500 mb-3">Web Publishing</h3>
+			<p class="bg-red-400 p-2">
+				describe 3 major factors you should consider when choosing a right web hosting provider.
+			</p>
+		</div>
+		
+		<div>
+			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-emerald-500 mb-3">Web Performance & Maintenance</h3>
+			<p class="bg-red-400 p-2">
+				describe 5 ways to reduce page loading time & describe 5 important actions (tasks) to carry out when maintaining a website.
+			</p>
+		</div>
+		
+		<div>
+			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-violet-500 mb-3">Web security</h3>
+			<p class="bg-red-400 p-2">
+				describe 5 common cyber attacks (threats) and preventive measures against those attacks
+			</p>
+		</div>
+	</div>
+</div>
+{% endblock %}

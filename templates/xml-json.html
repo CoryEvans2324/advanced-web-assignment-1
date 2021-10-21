@@ -1,0 +1,29 @@
+{% extends '_layout.html' %}
+
+{% block content %}
+XML-JSON page
+
+<div id="xml-data"></div>
+
+<script>
+	function loadXML() {
+		let url = '{{ CORS_PROXY }}{{ XML_URL }}'
+
+		let xhttp = new XMLHttpRequest()
+
+		xhttp.onreadystatechange = function() {
+			// console.log(this, e)
+			if (this.readyState == 4 && this.status == 200) {
+				let data = this.responseText
+				console.log(data);
+				document.getElementById('xml-data').innerHTML = data
+			}
+		}
+
+		xhttp.open('GET', url, true)
+		xhttp.send()
+	}
+
+	loadXML()
+</script>
+{% endblock %}

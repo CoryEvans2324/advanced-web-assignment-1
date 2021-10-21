@@ -12,9 +12,9 @@
 	{% block head %}
 	{% endblock %}
 </head>
-<body class="relative min-h-screen overflow-x-hidden pb-12 flex flex-col">
+<body class="relative min-h-screen overflow-x-hidden pb-28 sm:pb-12 flex flex-col">
 	<nav class="relative flex justify-between items-center bg-blue-500 text-white font-semibold px-4 z-50">
-		<a href="/" class="flex items-center justify-center space-x-3 hover:bg-white hover:text-blue-500 py-1 w-32">
+		<a href="index.html" class="flex items-center justify-center space-x-3 hover:bg-white hover:text-blue-500 py-1 w-32">
 			<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 				<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 				<circle cx="12" cy="12" r="9"></circle>
@@ -35,7 +35,7 @@
 			</li>
 
 			<li>
-				<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="/XML-JSON">XML-JSON</a>
+				<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="xml-json.html">XML-JSON</a>
 			</li>
 
 			<li>
@@ -43,19 +43,11 @@
 			</li>
 
 			<li>
-				<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="/research">RESEARCH</a>
+				<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="research.html">RESEARCH</a>
 			</li>
 		</ul>
 
 		<div class="flex justify-end space-x-3 w-32" x-data="{show: false}">
-			<a href="/search">
-				<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-					<circle cx="10" cy="10" r="7"></circle>
-					<line x1="21" y1="21" x2="15" y2="15"></line>
-				</svg>
-			</a>
-
 			<div class="hover:cursor-pointer" onclick="openNav()" @click="show = !show">
 				<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -79,7 +71,7 @@
 				</li>
 
 				<li class="w-full">
-					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/XML-JSON">XML-JSON</a>
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="xml-json.html">XML-JSON</a>
 				</li>
 
 				<li class="w-full">
@@ -87,7 +79,7 @@
 				</li>
 
 				<li class="w-full">
-					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/research">RESEARCH</a>
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="research.html">RESEARCH</a>
 				</li>
 			</ul>
 		</div>
@@ -98,7 +90,7 @@
 		{% endblock %}
 	</main>
 
-	<footer class="h-12 absolute bottom-0 left-0 right-0 bg-blue-500">
+	<footer class="h-28 py-2 sm:py-0 sm:h-12 absolute bottom-0 left-0 right-0 bg-blue-500">
 		<div class="grid grid-cols-1 sm:grid-cols-3 gap-2 h-full">
 			<div class="flex items-center justify-center space-x-1">
 				<a href="#" class="hover:text-white">

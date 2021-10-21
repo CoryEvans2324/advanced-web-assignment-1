@@ -21,9 +21,9 @@ class Template():
         return self.__str__()
 
     def render(self, jinja_env: Environment, dest_dir: str):
-        tmpl = jinja_env.get_template(self.name)
-        tmpl_data = self.env or {}
         try:
+            tmpl = jinja_env.get_template(self.name)
+            tmpl_data = self.env or {}
             rt = tmpl.render(**tmpl_data)
         except Exception as e:
             print(f'{self} failed to render: {e}')
