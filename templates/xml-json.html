@@ -15,20 +15,93 @@
 
 {% block content %}
 <div class="absolute inset-0 bg-gray-200"></div>
-<div class="m-4 relative max-w-7xl xl:mx-auto">
-	<div class="flex space-x-2 items-center">
-		<button
-		class="bg-blue-500 text-white font-semibold px-4 py-1 rounded shadow"
-		onclick="loadXML()"
-		>
-		Load RSS Feed
-		</button>
-		<a target="_blank" href="{{ CORS_PROXY }}" class="text-sm text-gray-700 underline">Click Here to enable the CORS proxy.</a>
+<div class="m-4 relative max-w-7xl xl:mx-auto flex flex-col space-y-8 bg-white p-4 sm:p-6 rounded-md shadow-md">
+	<div class="flex flex-col space-y-2">
+		<h1 class="text-2xl border-b border-black font-semibold uppercase tracking-tight">XML Syntax Rules</h1>
 	</div>
-	
-	<div id="rss-feed"
-		class="mt-4 grid gap-4"
-	></div>
+	<div class="flex flex-col space-y-2">
+		<h1 class="text-2xl border-b border-black font-semibold uppercase tracking-tight">JSON Syntax Rules</h1>
+
+		<div class="flex flex-col mx-4 items-start">
+			<h2>Data is in key/value pairs.</h2>
+			<p class="rounded shadow font-mono bg-trueGray-300 py-1 px-3">
+				<span class="text-green-700">"name"</span>: <span class="text-green-700">"Cory"</span>
+			</p>
+		</div>
+
+		<div class="flex flex-col mx-4 items-start">
+			<h2>Data is seperated by commas.</h2>
+			<p class="rounded shadow font-mono bg-trueGray-300 py-1 px-3">
+				<span class="text-green-700">"name"</span>: <span class="text-green-700">"Cory"</span>,
+				<span class="text-green-700">"age"</span>: <span class="text-yellow-700">20</span>
+			</p>
+		</div>
+
+		<div class="flex flex-col mx-4 items-start">
+			<h2>Curly braces hold objects.</h2>
+			<p class="rounded shadow font-mono bg-trueGray-300 py-1 px-3">
+				{
+					<span class="text-green-700">"name"</span>: <span class="text-green-700">"Cory"</span>,
+					<span class="text-green-700">"age"</span>: <span class="text-yellow-700">20</span>
+				}
+			</p>
+		</div>
+		<div class="flex flex-col mx-4 items-start">
+			<h2>Square brackets hold arrays.</h2>
+			<p class="rounded shadow font-mono bg-trueGray-300 py-1 px-3">
+				[
+					<span class="text-yellow-700">1</span>,
+					<span class="text-yellow-700">2</span>,
+					<span class="text-yellow-700">3</span>,
+					<span class="text-yellow-700">4</span>,
+					<span class="text-yellow-700">5</span>
+				]
+			</p>
+		</div>
+		<div class="h-4"></div>
+		<div class="flex flex-col mx-4 items-start">
+			<h2>An example:</h2>
+			<div class="rounded shadow font-mono bg-trueGray-300 py-1 px-3">
+				{
+				<div class="ml-4">
+					<span class="text-green-700">"name"</span>: <span class="text-green-700">"Cory"</span>,<br>
+					<span class="text-green-700">"age"</span>: <span class="text-yellow-700">20</span>,<br>
+					<span class="text-green-700">"pets"</span>: [
+					<div class="ml-4">
+						{
+							<div class="ml-4">
+								<span class="text-green-700">"name"</span>: <span class="text-green-700">"Storm"</span>,<br>
+								<span class="text-green-700">"type"</span>: <span class="text-green-700">"cat"</span>
+							</div>
+						},<br>
+						{
+							<div class="ml-4">
+								<span class="text-green-700">"name"</span>: <span class="text-green-700">"Zoe"</span>,<br>
+								<span class="text-green-700">"type"</span>: <span class="text-green-700">"cat"</span>
+							</div>
+						}
+					</div>
+					]
+				</div>
+				}
+		</div>
+	</div>
+	<div class="flex flex-col space-y-2">
+		<h1 class="text-2xl border-b border-black font-semibold uppercase tracking-tight">XML RSS Feed</h1>
+		<div class="flex space-x-2 items-center">
+			<button
+			class="bg-blue-500 text-white font-semibold px-4 py-1 rounded shadow"
+			onclick="loadXML()"
+			>
+			Load RSS Feed
+			</button>
+			<a target="_blank" href="{{ CORS_PROXY }}" class="text-sm text-gray-700 underline">Click Here to enable the CORS proxy.</a>
+		</div>
+		
+		<div id="rss-feed"
+			class="mt-4 grid gap-4"
+		></div>
+	</div>
 </div>
 <script>
 	function loadXML() {
