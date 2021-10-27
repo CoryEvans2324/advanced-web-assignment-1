@@ -172,3 +172,19 @@ function onSignInFormSubmit(event, username_id, password_id) {
 	let password = document.querySelector(password_id).value
 	var res = login(username, password)
 }
+
+
+var formResponses = []
+
+function onHTMLFormSubmit(event) {
+	event.preventDefault()
+	
+	var fd = new FormData(event.target)
+	var formData = {}
+	for (const entry of fd.entries()) {
+		formData[entry[0]] = entry[1]
+	}
+
+	formResponses.push(formData)
+	console.log('Form Responses:', formResponses)
+}
