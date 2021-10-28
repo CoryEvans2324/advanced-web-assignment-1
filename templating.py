@@ -1,4 +1,5 @@
 import os
+import sys
 import time
 import yaml
 from typing import List
@@ -72,17 +73,18 @@ def on_modified(event):
 if __name__ == '__main__':
     reload_all_templates()
 
-    my_event_handler = PatternMatchingEventHandler(['*'])
-    my_event_handler.on_modified = on_modified
+    if len(sys.argv) > 1 and sys.argv[1] == '--watch':
+        my_event_handler = PatternMatchingEventHandler(['*'])
+        my_event_handler.on_modified = on_modified
 
-    path = config['src']
-    my_observer = Observer()
-    my_observer.schedule(my_event_handler, path, True)
+        path = config['src']
+        my_observer = Observer()
+        my_observer.schedule(my_event_handler, path, True)
 
-    my_observer.start()
-    try:
-        while True:
-            time.sleep(1)
-    except KeyboardInterrupt:
-        my_observer.stop()
-        my_observer.join()
+        my_observer.start()
+        try:
+            while True:
+                time.sleep(1)
+        except KeyboardInterrupt:
+            my_observer.stop()
+            my_observer.join()
