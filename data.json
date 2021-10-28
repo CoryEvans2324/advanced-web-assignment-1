@@ -1,0 +1,16 @@
+[
+	{"name": "Daniel Dang",
+	 "email": "ddang@eit.ac.nz",
+	 "address": ["EIT",	"501 Gloucester", "Napier",	"4112"]
+	},
+
+	{"name": "David Skelton",
+	 "email": "dskelton@eit.ac.nz",
+	 "address": ["EIT",	"501 Gloucester", "Napier",	"4112"]
+	},
+	 
+	{"name": "Ian Purdon",
+	 "email": "ipurdon@eit.ac.nz",
+	 "address": ["EIT",	"501 Gloucester", "Napier",	"4112"]
+	}
+]

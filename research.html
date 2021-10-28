@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Advanced Web - Cory</title>
+	<link rel="stylesheet" href="style.css" />
+	<script src="javascript.js"></script>
+
+</head>
+<body class="relative min-h-screen overflow-x-hidden pb-28 sm:pb-12 flex flex-col bg-gray-200">
+	<nav class="relative flex justify-between items-center bg-blue-500 text-white font-semibold px-4 z-50">
+		<a href="index.html" class="flex items-center justify-center space-x-3 hover:bg-white hover:text-blue-500 py-1 w-32">
+			<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+				<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+				<circle cx="12" cy="12" r="9"></circle>
+				<line x1="3.6" y1="9" x2="20.4" y2="9"></line>
+				<line x1="3.6" y1="15" x2="20.4" y2="15"></line>
+				<path d="M11.5 3a17 17 0 0 0 0 18"></path>
+				<path d="M12.5 3a17 17 0 0 1 0 18"></path>
+			</svg>
+			<span>ITWD6.408</span>
+		</a>
+		<ul class="hidden md:flex">
+			<li>
+				<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="/">Home</a>
+			</li>
+
+			<li>
+				<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="/forms.html">Forms</a>
+			</li>
+
+			<li>
+				<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="xml-json.html">XML-JSON</a>
+			</li>
+
+			<li>
+				<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="javascript.html">JAVASCRIPT</a>
+			</li>
+
+			<li>
+				<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="research.html">RESEARCH</a>
+			</li>
+		</ul>
+
+		<div class="flex justify-end space-x-3 w-32" x-data="{show: false}">
+			<div class="hover:cursor-pointer" onclick="openNav()" @click="show = !show">
+				<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+					<line x1="4" y1="6" x2="20" y2="6"></line>
+					<line x1="4" y1="12" x2="20" y2="12"></line>
+					<line x1="4" y1="18" x2="20" y2="18"></line>
+				</svg>
+			</div>
+		</div>
+	</nav>
+	<div id="sidebar" x-show="show" class="absolute w-64 -right-64 top-0 bottom-0 bg-black transition-all duration-500 z-50">
+		<div class="text-white">
+			<button class="text-right w-full block px-2 text-xl font-semibold hover:bg-gray-500" onclick="closeNav()">&times;</button>
+			<ul class="flex flex-col items-end min-h-[300px]">
+				<li class="w-full">
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/">Home</a>
+				</li>
+
+				<li class="w-full">
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="forms.html">Forms</a>
+				</li>
+
+				<li class="w-full">
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="xml-json.html">XML-JSON</a>
+				</li>
+
+				<li class="w-full">
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="javascript.html">JAVASCRIPT</a>
+				</li>
+
+				<li class="w-full">
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="research.html">RESEARCH</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<main class="relative flex-1">
+<div class="flex flex-col items-center my-4">
+	<div class="w-full px-2 sm:px-4 flex flex-col space-y-6">
+		<div>
+			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-teal-500 mb-3">Creative Common (CC) Licenses</h3>
+			<ul class="mx-1 sm:mx-4 flex flex-col space-y-4 divide-y divide-gray-600">
+				<li class=" flex flex-col">
+					<div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-1 items-baseline">
+						<img src="images/cc/by.png" alt="Attribution">
+						<h1 class="text-xl sm:text-3xl lg:text-4xl leading-none font-extrabold text-gray-900 tracking-tight">Attribution</h1>
+						<h2 class="sm:text-xl sm:leading-snug font-semibold tracking-wide text-gray-600 uppercase mb-3">(CC BY)</h2>
+					</div>
+					<p>
+						This license lets others distribute, remix, adapt, and build upon your work, even commercially, as long as they credit you for the original creation. This is the most accommodating of licenses offered. Recommended for maximum dissemination and use of licensed materials.
+					</p>
+				</li>
+				<li class="pt-4 flex flex-col">
+					<div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-1 items-baseline">
+						<img src="images/cc/by-sa.png" alt="Attribution-ShareAlike">
+						<h1 class="text-xl sm:text-3xl lg:text-4xl leading-none font-extrabold text-gray-900 tracking-tight">Attribution-ShareAlike</h1>
+						<h2 class="sm:text-xl sm:leading-snug font-semibold tracking-wide text-gray-600 uppercase mb-3">(CC BY-SA)</h2>
+					</div>
+					<p>
+						This license lets others remix, adapt, and build upon your work even for commercial purposes, as long as they credit you and license their new creations under the identical terms. This license is often compared to “copyleft” free and open source software licenses. All new works based on yours will carry the same license, so any derivatives will also allow commercial use. This is the license used by Wikipedia, and is recommended for materials that would benefit from incorporating content from Wikipedia and similarly licensed projects.
+					</p>
+				</li>
+				<li class="pt-4 flex flex-col">
+					<div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-1 items-baseline">
+						<img src="images/cc/by-nd.png" alt="Attribution-NoDerivs">
+						<h1 class="text-xl sm:text-3xl lg:text-4xl leading-none font-extrabold text-gray-900 tracking-tight">Attribution-NoDerivs</h1>
+						<h2 class="sm:text-xl sm:leading-snug font-semibold tracking-wide text-gray-600 uppercase mb-3">(CC BY-ND)</h2>
+					</div>
+					<p>
+						This license lets others reuse the work for any purpose, including commercially; however, it cannot be shared with others in adapted form, and credit must be provided to you.
+					</p>
+				</li>
+				<li class="pt-4 flex flex-col">
+					<div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-1 items-baseline">
+						<img src="images/cc/by-nc.png" alt="Attribution-NonCommercial">
+						<h1 class="text-xl sm:text-3xl lg:text-4xl leading-none font-extrabold text-gray-900 tracking-tight">Attribution-NonCommercial</h1>
+						<h2 class="sm:text-xl sm:leading-snug font-semibold tracking-wide text-gray-600 uppercase mb-3">(CC BY-NC)</h2>
+					</div>
+					<p>
+						This license lets others remix, adapt, and build upon your work non-commercially, and although their new works must also acknowledge you and be non-commercial, they don’t have to license their derivative works on the same terms.
+					</p>
+				</li>
+				<li class="pt-4 flex flex-col">
+					<div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-1 items-baseline">
+						<img src="images/cc/by-nc-sa.png" alt="Attribution-NonCommercial-ShareAlike">
+						<h1 class="text-xl sm:text-3xl lg:text-4xl leading-none font-extrabold text-gray-900 tracking-tight">Attribution-NonCommercial-ShareAlike</h1>
+						<h2 class="sm:text-xl sm:leading-snug font-semibold tracking-wide text-gray-600 uppercase mb-3">(CC BY-NC-SA)</h2>
+					</div>
+					<p>
+						This license lets others remix, adapt, and build upon your work non-commercially, as long as they credit you and license their new creations under the identical terms.
+					</p>
+				</li>
+				<li class="pt-4 flex flex-col">
+					<div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-1 items-baseline">
+						<img src="images/cc/by-nc-nd.png" alt="Attribution-NonCommercial-NoDerivs">
+						<h1 class="text-xl sm:text-3xl lg:text-4xl leading-none font-extrabold text-gray-900 tracking-tight">Attribution-NonCommercial-NoDerivs</h1>
+						<h2 class="sm:text-xl sm:leading-snug font-semibold tracking-wide text-gray-600 uppercase mb-3">(CC BY-NC-ND)</h2>
+					</div>
+					<p>
+						This license is the most restrictive of our six main licenses, only allowing others to download your works and share them with others as long as they credit you, but they can’t change them in any way or use them commercially.
+					</p>
+				</li>
+			</ul>
+
+			<div class="flex flex-wrap mt-4 space-x-1 text-sm text-gray-700">
+	<span class="whitespace-nowrap">Creative Commons.</span>
+	<span class="whitespace-nowrap">(2021, October).</span>
+	<span class="whitespace-nowrap italic">About The Licenses.</span>
+	<span class="whitespace-nowrap">
+		<a
+			class="underline text-blue-500 inline-block"
+			href="https://creativecommons.org/licenses/"
+		>https://creativecommons.org/licenses/</a>.
+	</span>
+</div>
+
+		</div>
+
+		<div>
+			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-blue-500 mb-3">Privacy Policy</h3>
+			<p class="bg-red-400 p-2">
+				describe what is a privacy policy? Create a short privacy policy to your website
+			</p>
+		</div>
+
+		<div>
+			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-red-500 mb-3">Search Engine Optimization (SEO)</h3>
+			<p class="bg-red-400 p-2">
+				describe 5 ways to improve the visibility of your website on search engine.
+			</p>
+		</div>
+
+		<div>
+			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-amber-500 mb-3">Web Publishing</h3>
+			<p class="bg-red-400 p-2">
+				describe 3 major factors you should consider when choosing a right web hosting provider.
+			</p>
+		</div>
+		
+		<div>
+			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-emerald-500 mb-3">Web Performance & Maintenance</h3>
+			<p class="bg-red-400 p-2">
+				describe 5 ways to reduce page loading time & describe 5 important actions (tasks) to carry out when maintaining a website.
+			</p>
+		</div>
+		
+		<div>
+			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-violet-500 mb-3">Web security</h3>
+			<p class="bg-red-400 p-2">
+				describe 5 common cyber attacks (threats) and preventive measures against those attacks
+			</p>
+		</div>
+	</div>
+</div>
+	</main>
+
+	<footer class="h-28 py-2 sm:py-0 sm:h-12 absolute bottom-0 left-0 right-0 bg-blue-500">
+		<div class="grid grid-cols-1 sm:grid-cols-3 gap-2 h-full">
+			<div class="flex items-center justify-center space-x-1">
+				<a href="#" class="hover:text-white">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
+					</svg>
+				</a>
+
+				<a href="#" class="hover:text-white">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<rect x="4" y="4" width="16" height="16" rx="2"></rect>
+						<line x1="8" y1="11" x2="8" y2="16"></line>
+						<line x1="8" y1="8" x2="8" y2="8.01"></line>
+						<line x1="12" y1="16" x2="12" y2="11"></line>
+						<path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
+					</svg>
+				</a>
+
+				<a href="#" class="hover:text-white">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<rect x="3" y="5" width="18" height="14" rx="4"></rect>
+						<path d="M10 9l5 3l-5 3z"></path>
+					</svg>
+				</a>
+
+				<a href="#" class="hover:text-white">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z"></path>
+					</svg>
+				</a>
+
+				<a href="#" class="hover:text-white">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<rect x="4" y="4" width="16" height="16" rx="4"></rect>
+						<circle cx="12" cy="12" r="3"></circle>
+						<line x1="16.5" y1="7.5" x2="16.5" y2="7.501"></line>
+					</svg>
+				</a>
+			</div>
+
+			<div class="flex flex-col items-center justify-center">
+				<h1 class="text-center">&copy; 2021 Cory Evans</h1>
+			</div>
+			<div class="flex flex-col items-center justify-center">
+				<a class="hover:text-white font-semibold block text-center" href="/privacy-policy">Privacy Policy</a>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

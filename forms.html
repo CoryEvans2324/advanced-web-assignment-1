@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Advanced Web - Cory</title>
+	<link rel="stylesheet" href="style.css" />
+	<script src="javascript.js"></script>
+
+</head>
+<body class="relative min-h-screen overflow-x-hidden pb-28 sm:pb-12 flex flex-col bg-gray-200">
+	<nav class="relative flex justify-between items-center bg-blue-500 text-white font-semibold px-4 z-50">
+		<a href="index.html" class="flex items-center justify-center space-x-3 hover:bg-white hover:text-blue-500 py-1 w-32">
+			<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+				<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+				<circle cx="12" cy="12" r="9"></circle>
+				<line x1="3.6" y1="9" x2="20.4" y2="9"></line>
+				<line x1="3.6" y1="15" x2="20.4" y2="15"></line>
+				<path d="M11.5 3a17 17 0 0 0 0 18"></path>
+				<path d="M12.5 3a17 17 0 0 1 0 18"></path>
+			</svg>
+			<span>ITWD6.408</span>
+		</a>
+		<ul class="hidden md:flex">
+			<li>
+				<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="/">Home</a>
+			</li>
+
+			<li>
+				<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="/forms.html">Forms</a>
+			</li>
+
+			<li>
+				<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="xml-json.html">XML-JSON</a>
+			</li>
+
+			<li>
+				<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="javascript.html">JAVASCRIPT</a>
+			</li>
+
+			<li>
+				<a class="h-full block py-1 px-2 hover:bg-white hover:text-blue-500" href="research.html">RESEARCH</a>
+			</li>
+		</ul>
+
+		<div class="flex justify-end space-x-3 w-32" x-data="{show: false}">
+			<div class="hover:cursor-pointer" onclick="openNav()" @click="show = !show">
+				<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+					<line x1="4" y1="6" x2="20" y2="6"></line>
+					<line x1="4" y1="12" x2="20" y2="12"></line>
+					<line x1="4" y1="18" x2="20" y2="18"></line>
+				</svg>
+			</div>
+		</div>
+	</nav>
+	<div id="sidebar" x-show="show" class="absolute w-64 -right-64 top-0 bottom-0 bg-black transition-all duration-500 z-50">
+		<div class="text-white">
+			<button class="text-right w-full block px-2 text-xl font-semibold hover:bg-gray-500" onclick="closeNav()">&times;</button>
+			<ul class="flex flex-col items-end min-h-[300px]">
+				<li class="w-full">
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="/">Home</a>
+				</li>
+
+				<li class="w-full">
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="forms.html">Forms</a>
+				</li>
+
+				<li class="w-full">
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="xml-json.html">XML-JSON</a>
+				</li>
+
+				<li class="w-full">
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="javascript.html">JAVASCRIPT</a>
+				</li>
+
+				<li class="w-full">
+					<a class="block py-1 px-2 text-right hover:bg-gray-500" href="research.html">RESEARCH</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<main class="relative flex-1">
+<div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+	<div class="col-span-1 h-16 mx-auto sm:mx-4 grid grid-cols-2 sm:grid-cols-2 gap-2">
+		<button id="demo1-btn" onclick="viewPage('demo1')" class="px-2 border border-gray-500 rounded-sm bg-yellow-500">HTML Form</button>
+		<button id="demo2-btn" onclick="viewPage('demo2')" class="px-2 border border-gray-500 rounded-sm bg-white">Google Form</button>
+		<button id="demo3-btn" style="display: none;"></button>
+		<button id="demo4-btn" style="display: none;"></button>
+	</div>
+
+	<div class="col-span-2 grid place-items-center p-1 flex-1">
+		<div id="demo1" class="w-full h-full bg-white rounded shadow p-4">
+			<!-- html form -->
+			<form class="flex flex-col space-y-4" onsubmit="onHTMLFormSubmit(event)">
+				<div class="grid sm:grid-cols-2">
+					<div class="flex flex-col">
+						<label for="first-name">First Name</label>
+						<input
+							class="mx-2 px-2 py-1 border-b border-black placeholder-shown:italic focus:outline-none"
+							placeholder="John"
+							type="text" name="first-name" id="first-name">
+					</div>
+					<div class="flex flex-col">
+						<label for="last-name">Last Name</label>
+						<input 
+							class="mx-2 px-2 py-1 border-b border-black placeholder-shown:italic focus:outline-none"
+							placeholder="Doe"
+							type="text" name="last-name" id="last-name">
+					</div>
+				</div>
+				<div class="flex flex-col space-y-1">
+					<label for="address-line-1">Address</label>
+					<input type="text" name="address-line-1" id="address-line-1"
+						placeholder="501 Gloucester St"
+						class="mx-2 px-2 py-1 border-b border-black placeholder-shown:italic focus:outline-none"
+					>
+					
+					<div class="grid gap-1 sm:grid-cols-2">
+						<div class="flex flex-col">
+							<label for="address-city">Town / City</label>
+							<input type="text" name="address-city" id="address-city"
+								placeholder="Napier"
+								class="mx-2 px-2 py-1 border-b border-black placeholder-shown:italic focus:outline-none"
+							>
+						</div>
+
+						<div class="flex flex-col">
+							<label for="address-postcode">Postcode</label>
+							<input type="number" name="address-postcode" id="address-postcode"
+								placeholder="4112"
+								class="mx-2 px-2 py-1 border-b border-black placeholder-shown:italic focus:outline-none"
+							>
+						</div>
+					</div>
+				</div>
+
+				<div class="flex flex-col">
+					<label>Gender</label>
+					<ul class="flex space-x-4">
+						<li>
+							<input type="radio" name="gender" value="male" id="gender-male">
+							<label for="gender-male">Male</label>
+						</li>
+						<li>
+							<input type="radio" name="gender" value="female" id="gender-female">
+							<label for="gender-female">Female</label>
+						</li>
+						<li>
+							<input type="radio" name="gender" value="neutral" id="gender-neutral">
+							<label for="gender-neutral">Neutral</label>
+						</li>
+					</ul>
+				</div>
+
+				<div class="flex flex-col">
+					<label>Mobile Phone Type</label>
+					<ul class="flex space-x-4">
+						<li>
+							<input type="radio" name="phone-type" value="windows" id="phone-windows">
+							<label for="phone-windows">Windows</label>
+						</li>
+						<li>
+							<input type="radio" name="phone-type" value="apple" id="phone-apple">
+							<label for="phone-apple">Apple</label>
+						</li>
+						<li>
+							<input type="radio" name="phone-type" value="android" id="phone-android">
+							<label for="phone-android">Android</label>
+						</li>
+						<li>
+							<input type="radio" name="phone-type" value="other" id="phone-other">
+							<label for="phone-other">Other</label>
+						</li>
+					</ul>
+				</div>
+
+				<div class="flex flex-col">
+					<label for="mobile-provider">Mobile Provider</label>
+					<select name="mobile-provider" id="mobile-provider"
+					class="mx-2 px-2 py-1 border-b border-black placeholder-shown:italic focus:outline-none"
+					>
+						<option value="spark">Spark</option>
+						<option value="vodafone">Vodafone</option>
+						<option value="2degrees">2Degrees</option>
+						<option value="skinny">Skinny</option>
+						<option value="warehouse">Warehouse Mobile</option>
+						<option value="compass">Compass</option>
+						<option value="blue_sky">Blue Sky</option>
+						<option value="slingshot">Slingshot</option>
+					</select>
+				</div>
+
+				<div class="flex flex-col">
+					<label for="study-reason">Do you use your phone for study?</label>
+					<textarea name="study-reason" id="study-reason" rows="4" placeholder="please explain..."
+						class="focus:outline-none border border-black rounded-sm mx-2 p-2"
+					></textarea>
+				</div>
+
+				<div class="grid sm:grid-cols-2 gap-2">
+					<button class="flex-1 py-2 rounded hover:shadow font-semibold text-blue-600 " type="reset">Reset</button>
+					<button class="flex-1 py-2 rounded shadow font-semibold bg-blue-500 text-white hover:bg-blue-400" type="submit">Submit</button>
+				</div>
+			</form>
+		</div>
+
+		<!-- Google Form -->
+		<div id="demo2" style="display: none;" class="w-full">
+			<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfuCRC_f-4riqpbLaUtTwqxm9UXHpoCVQDLnFXGTqLubxYQPQ/viewform?embedded=true"
+				class="w-full"
+				height="600"
+				frameborder="0"
+				marginheight="0"
+				marginwidth="0"
+			>Loading…</iframe>
+		</div>
+
+		<div id="demo3" style="display: none;"></div>
+		<div id="demo4" style="display: none;"></div>
+	</div>
+</div>
+	</main>
+
+	<footer class="h-28 py-2 sm:py-0 sm:h-12 absolute bottom-0 left-0 right-0 bg-blue-500">
+		<div class="grid grid-cols-1 sm:grid-cols-3 gap-2 h-full">
+			<div class="flex items-center justify-center space-x-1">
+				<a href="#" class="hover:text-white">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
+					</svg>
+				</a>
+
+				<a href="#" class="hover:text-white">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<rect x="4" y="4" width="16" height="16" rx="2"></rect>
+						<line x1="8" y1="11" x2="8" y2="16"></line>
+						<line x1="8" y1="8" x2="8" y2="8.01"></line>
+						<line x1="12" y1="16" x2="12" y2="11"></line>
+						<path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
+					</svg>
+				</a>
+
+				<a href="#" class="hover:text-white">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<rect x="3" y="5" width="18" height="14" rx="4"></rect>
+						<path d="M10 9l5 3l-5 3z"></path>
+					</svg>
+				</a>
+
+				<a href="#" class="hover:text-white">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z"></path>
+					</svg>
+				</a>
+
+				<a href="#" class="hover:text-white">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+						<rect x="4" y="4" width="16" height="16" rx="4"></rect>
+						<circle cx="12" cy="12" r="3"></circle>
+						<line x1="16.5" y1="7.5" x2="16.5" y2="7.501"></line>
+					</svg>
+				</a>
+			</div>
+
+			<div class="flex flex-col items-center justify-center">
+				<h1 class="text-center">&copy; 2021 Cory Evans</h1>
+			</div>
+			<div class="flex flex-col items-center justify-center">
+				<a class="hover:text-white font-semibold block text-center" href="/privacy-policy">Privacy Policy</a>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
