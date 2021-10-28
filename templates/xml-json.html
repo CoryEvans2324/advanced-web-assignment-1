@@ -13,42 +13,145 @@
 </div>
 {% endmacro %}
 
+{% macro json_item(name_var_name, email_var_name, address_var_name) %}
+<div class="bg-white rounded shadow p-4">
+	<h1 class="font-semibold text-lg">{{ '${' + name_var_name + '}' }}</h1>
+	<span class="text-sm text-gray-600">{{ '${' + email_var_name + '}' }}</span>
+	<p>{{ '${' + address_var_name + '}' }}</p>
+</div>
+{% endmacro %}
+
+{% macro xmlTag(name, closing=False, attrs=None) %}
+
+{% if not attrs %}{% set attrs = {} %}{% endif %}
+
+{% set tag = name %}
+{% if closing %}
+{% set tag = '/' + name %}
+{% endif %}
+<span class="flex">
+	&lt;
+	<span class="text-blue-700 flex flex-nowrap">
+		{{ tag }}
+		{% for k, v in attrs.items() %}
+		<span class="ml-2 text-red-700">{{k}}=<span class="text-green-700">"{{v}}"</span></span>
+		{% endfor %}
+	</span>
+	&gt;
+</span>
+{% endmacro %}
+
 {% block content %}
 <div class="absolute inset-0 bg-gray-200"></div>
-<div class="m-4 relative max-w-7xl xl:mx-auto flex flex-col space-y-8 bg-white p-4 sm:p-6 rounded-md shadow-md">
-	<div class="flex flex-col space-y-2">
+<div class="m-4 relative max-w-7xl xl:mx-auto flex flex-col space-y-8 bg-gray-100 p-4 sm:p-6 rounded-md shadow-md overflow-hidden">
+	<section class="flex flex-col space-y-4">
 		<h1 class="text-2xl border-b border-black font-semibold uppercase tracking-tight">XML Syntax Rules</h1>
-	</div>
-	<div class="flex flex-col space-y-2">
+		<div class="flex flex-col mx-4">
+			<h2>XML Documents Must Have a Root Element</h2>
+			<p>In this example <span class="font-mono bg-gray-300 text-blue-700 p-1 rounded-sm">child</span> is the root element.</p>
+			<div class="mt-1 rounded shadow font-mono bg-gray-300 py-1 px-3">
+				{{ xmlTag('child') }}
+				<div class="ml-4">
+					<div class="flex">
+						{{ xmlTag('name') }}
+						<span class="text-green-700">Billy</span>
+						{{ xmlTag('name') }}
+					</div>
+				</div>
+				<div class="ml-4">
+					<div class="flex">
+						{{ xmlTag('age') }}
+						<span class="text-yellow-700">7</span>
+						{{ xmlTag('age') }}
+					</div>
+				</div>
+				{{ xmlTag('child', True) }}
+			</div>
+		</div>
+		<div class="flex flex-col mx-4">
+			<h2>All XML Elements Must Have a Closing Tag</h2>
+			<div class="mt-1 rounded shadow font-mono bg-gray-300 py-1 px-3">
+				<div class="flex flex-wrap">
+					{{ xmlTag('message') }}
+					There is both a opening and closing tag.
+					{{ xmlTag('message', True) }}
+				</div>
+			</div>
+		</div>
+		<div class="flex flex-col mx-4">
+			<h2>XML Tags are Case Sensitive</h2>
+			<div class="mt-1 rounded shadow font-mono bg-gray-300 py-1 px-3">
+				<div class="inline flex-wrap">
+					{{ xmlTag('MesSage') }}
+					These tags are valid, but they must match exactly.
+					{{ xmlTag('MesSage', True) }}
+				</div>
+			</div>
+		</div>
+		<div class="flex flex-col mx-4">
+			<h2>XML Elements Must be Properly Nested</h2>
+			<div class="mt-1 rounded shadow font-mono bg-gray-300 py-1 px-3">
+				<div class="flex flex-wrap">
+					{{ xmlTag('message') }}
+					{{ xmlTag('i') }}
+					This is valid XML.
+					{{ xmlTag('i', True) }}
+					{{ xmlTag('message', True) }}
+				</div>
+			</div>
+			<div class="mt-1 rounded shadow font-mono bg-gray-300 py-1 px-3">
+				<div class="flex flex-wrap">
+					{{ xmlTag('message') }}
+					{{ xmlTag('i') }}
+					This is invalid XML.
+					{{ xmlTag('message', True) }}
+					{{ xmlTag('i', True) }}
+				</div>
+			</div>
+		</div>
+		<div class="flex flex-col mx-4">
+			<h2>XML Attribute Values Must Always be Quoted</h2>
+			<div class="mt-1 rounded shadow font-mono bg-gray-300 py-1 px-3 overflow-x-scroll">
+				{{ xmlTag('diaryEntry', attrs={'date': '28/10/2021'}) }}
+				<div class="ml-4 flex flex-wrap">
+					{{ xmlTag('content') }}
+					Dear diary...
+					{{ xmlTag('content', True) }}
+				</div>
+				{{ xmlTag('diaryEntry', True) }}
+			</div>
+		</div>
+	</section>
+	<section class="flex flex-col space-y-4">
 		<h1 class="text-2xl border-b border-black font-semibold uppercase tracking-tight">JSON Syntax Rules</h1>
 
-		<div class="flex flex-col mx-4 items-start">
+		<div class="flex flex-col mx-4">
 			<h2>Data is in key/value pairs.</h2>
-			<p class="rounded shadow font-mono bg-trueGray-300 py-1 px-3">
+			<p class="rounded shadow font-mono bg-gray-300 py-1 px-3">
 				<span class="text-green-700">"name"</span>: <span class="text-green-700">"Cory"</span>
 			</p>
 		</div>
 
-		<div class="flex flex-col mx-4 items-start">
+		<div class="flex flex-col mx-4">
 			<h2>Data is seperated by commas.</h2>
-			<p class="rounded shadow font-mono bg-trueGray-300 py-1 px-3">
+			<p class="rounded shadow font-mono bg-gray-300 py-1 px-3">
 				<span class="text-green-700">"name"</span>: <span class="text-green-700">"Cory"</span>,
 				<span class="text-green-700">"age"</span>: <span class="text-yellow-700">20</span>
 			</p>
 		</div>
 
-		<div class="flex flex-col mx-4 items-start">
+		<div class="flex flex-col mx-4">
 			<h2>Curly braces hold objects.</h2>
-			<p class="rounded shadow font-mono bg-trueGray-300 py-1 px-3">
+			<p class="rounded shadow font-mono bg-gray-300 py-1 px-3">
 				{
 					<span class="text-green-700">"name"</span>: <span class="text-green-700">"Cory"</span>,
 					<span class="text-green-700">"age"</span>: <span class="text-yellow-700">20</span>
 				}
 			</p>
 		</div>
-		<div class="flex flex-col mx-4 items-start">
+		<div class="flex flex-col mx-4">
 			<h2>Square brackets hold arrays.</h2>
-			<p class="rounded shadow font-mono bg-trueGray-300 py-1 px-3">
+			<p class="rounded shadow font-mono bg-gray-300 py-1 px-3">
 				[
 					<span class="text-yellow-700">1</span>,
 					<span class="text-yellow-700">2</span>,
@@ -59,9 +162,9 @@
 			</p>
 		</div>
 		<div class="h-4"></div>
-		<div class="flex flex-col mx-4 items-start">
+		<div class="flex flex-col mx-4">
 			<h2>An example:</h2>
-			<div class="rounded shadow font-mono bg-trueGray-300 py-1 px-3">
+			<div class="rounded shadow font-mono bg-gray-300 py-1 px-3">
 				{
 				<div class="ml-4">
 					<span class="text-green-700">"name"</span>: <span class="text-green-700">"Cory"</span>,<br>
@@ -85,8 +188,8 @@
 				</div>
 				}
 		</div>
-	</div>
-	<div class="flex flex-col space-y-2">
+	</section>
+	<section class="flex flex-col space-y-2">
 		<h1 class="text-2xl border-b border-black font-semibold uppercase tracking-tight">XML RSS Feed</h1>
 		<div class="flex space-x-2 items-center">
 			<button
@@ -101,7 +204,22 @@
 		<div id="rss-feed"
 			class="mt-4 grid gap-4"
 		></div>
-	</div>
+	</section>
+	<section class="flex flex-col space-y-2">
+		<h1 class="text-2xl border-b border-black font-semibold uppercase tracking-tight">Load JSON data from an external resource</h1>
+		<div class="flex space-x-2 items-center">
+			<button
+			class="bg-blue-500 text-white font-semibold px-4 py-1 rounded shadow"
+			onclick="loadJSON()"
+			>
+			Load JSON Document
+			</button>
+		</div>
+
+		<div id="json-feed"
+			class="mt-4 grid gap-4"
+		></div>
+	</section>
 </div>
 <script>
 	function loadXML() {
@@ -151,5 +269,29 @@
 		xhttp.open('GET', url, true)
 		xhttp.send()
 	}
+
+	function loadJSON() {
+		// fetch data.json
+		let url = 'data.json'
+		// fetch url
+		fetch(url)
+			.then(response => response.json())
+			.then(data => {
+				let doc = ''
+
+				for (let i = 0; i < data.length; i++) {
+					let name = data[i].name
+					let email = data[i].email
+					let address_list = data[i].address
+					
+					let address = address_list.join(', ')
+
+					doc += `{{ json_item('name', 'email', 'address') }}`
+				}
+
+				document.getElementById('json-feed').innerHTML = doc
+			})
+	}
 </script>
+
 {% endblock %}
