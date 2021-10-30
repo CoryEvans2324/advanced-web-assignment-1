@@ -83,7 +83,7 @@ const loadShopItems = (itemsToShow) => {
 
 	items.forEach(item => {
 		let ele = document.createElement('div')
-		ele.className = 'flex flex-col items-center w-64'
+		ele.className = 'flex flex-col items-center w-64 mx-auto'
 
 		let img = document.createElement('img')
 		img.src = item.image
@@ -118,7 +118,7 @@ const shopSearchFilterFunc = (searchTerm) => {
 
 
 const bg_color_change = (color) => {
-	document.documentElement.style.backgroundColor = color
+	document.body.style.backgroundColor = color
 }
 
 const doc_font_size_change = (font_size) => {
