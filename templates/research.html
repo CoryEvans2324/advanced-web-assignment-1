@@ -2,80 +2,146 @@
 {% from '_apa_reference.html' import apa_website %}
 {% block content %}
 <div class="flex flex-col items-center my-4">
-	<div class="w-full px-2 sm:px-4 flex flex-col space-y-6">
-		<div>
-			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-teal-500 mb-3">Creative Common (CC) Licenses</h3>
-			<ul class="mx-1 sm:mx-4 flex flex-col space-y-4 divide-y divide-gray-600">
-			{% for license in cc_licenses %}
-				<li class="{{ 'pt-4' if loop.index0 != 0 else ''}} flex flex-col">
-					<div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-1 items-baseline">
-						<img src="{{ license['img'] }}" alt="{{ license['title'] }}">
-						<h1 class="text-xl sm:text-3xl lg:text-4xl leading-none font-extrabold text-gray-900 tracking-tight">{{ license['title'] }}</h1>
-						<h2 class="sm:text-xl sm:leading-snug font-semibold tracking-wide text-gray-600 uppercase mb-3">({{ license['acronym'] }})</h2>
-					</div>
-					<p>
-						{{ license['desc'] }}
-					</p>
-				</li>
-			{% endfor %}
-			</ul>
-
-			{{ apa_website('Creative Commons', '(2021, October)', 'About The Licenses', 'https://creativecommons.org/licenses/') }}
-		</div>
-
-		<div>
-			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-blue-500 mb-3">Privacy Policy</h3>
-			<p class="p-2">
-				A Privacy Policy is a legal document that describes how a website collects, uses, and discloses information about its users.
-			</p>
-			<div class="p-2">
-				<h4>We collect personal information from you, including information about your:</h4>
-				<ul class="mx-4">
-					<li>name</li>
-					<li>contact information</li>
-				</ul>
-				<h4>We collect your personal information in order to:</h4>
-				<ul class="mx-4">
-					<li>facilitate the proof of concept for the functionality of the website.</li>
-				</ul>
-				<p>
-					You have the right to ask for a copy of any personal information we hold about you, and to ask for it to be corrected if you think it is wrong. If you’d like to ask for a copy of your information, or to have it corrected, please contact us at .
-				</p>
-			</div>
-		</div>
-
-		<div>
-			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-red-500 mb-3">Search Engine Optimization (SEO)</h3>
-			<h4 class="font-semibold">5 ways to improve the visibility of your website on search engines.</h4>
-			<div class="flex flex-col mx-4">
-				<p>1. Crawl accessibility is important so that search engines can read the content of your website.</p>
-				<p>2. Having content that will be compelling to the users seach query.</p>
-				<p>3. A fast loading site that will provide a good user experience.</p>
-				<p>4. Make sure your website is mobile fiendly.</p>
-				<p>5. Make sure your website is accessible to all users.</p>
-			</div>
-		</div>
-		<div>
-			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-amber-500 mb-3">Web Publishing</h3>
-			<h4 class="font-semibold">3 Major factors to consider when choosing a web hosting provier.</h4>
-			<ul>
-				<li>Average Uptime</li>
-				<li>Where the physical server is. This will affect network latency.</li>
-				<li>Pricing</li>
-			</ul>
-		</div>
-		<div>
-			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-emerald-500 mb-3">Web Performance & Maintenance</h3>
-			<p class="bg-red-400 p-2">
-				describe 5 ways to reduce page loading time & describe 5 important actions (tasks) to carry out when maintaining a website.
-			</p>
-		</div>
+	<div class="grid lg:grid-cols-2 2xl:grid-cols-3 gap-2 lg:gap-4 px-2 sm:px-4">
+		<div class="md:flex-1 flipbox">
+			<div class="flipbox-inner">
+				<div class="flipbox-front bg-blue-300 border-2 border-blue-500 p-4 rounded-sm flex justify-center items-center flex-col min-h-[400px]">
+					<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-teal-500 mb-3">Creative Common (CC) Licenses</h3>
+				</div>
+				<div class="flipbox-back bg-blue-300 border-2 border-blue-500 p-4 rounded-sm">
+					<ul class="flex flex-col space-y-4 divide-y divide-gray-600">
+					{% for license in cc_licenses %}
+						<li class="{{ 'pt-4' if loop.index0 != 0 else ''}} flex flex-col">
+							<div class="flex justify-between">
+								<h1>{{ license['title'] }}</h1>
+								<h2>{{ license['acronym'] }}</h2>
+							</div>
+						</li>
+					{% endfor %}
+					</ul>
 		
-		<div>
-			<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-violet-500 mb-3">Web security</h3>
-			<p class="bg-red-400 p-2">
-				describe 5 common cyber attacks (threats) and preventive measures against those attacks
-			</p>
+					{{ apa_website('Creative Commons', '(2021, October)', 'About The Licenses', 'https://creativecommons.org/licenses/') }}
+				</div>
+			</div>
+		</div>
+		<div class="md:flex-1 flipbox">
+			<div class="flipbox-inner">
+				<div class="flipbox-front bg-blue-300 border-2 border-blue-500 p-4 rounded-sm flex justify-center items-center flex-col min-h-[400px]">
+					<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-blue-500 mb-3">Privacy Policy</h3>
+					<p class="p-2">
+						A Privacy Policy is a legal document that describes how a website collects, uses, and discloses information about its users.
+					</p>
+				</div>
+				<div class="flipbox-back bg-blue-300 border-2 border-blue-500 p-4 rounded-sm">
+					<h4>We collect personal information from you, including information about your:</h4>
+					<ul class="mx-4">
+						<li>name</li>
+						<li>contact information</li>
+					</ul>
+					<h4>We collect your personal information in order to:</h4>
+					<ul class="mx-4">
+						<li>facilitate the proof of concept for the functionality of the website.</li>
+					</ul>
+					<p>
+						You have the right to ask for a copy of any personal information we hold about you, and to ask for it to be corrected if you think it is wrong. If you’d like to ask for a copy of your information, or to have it corrected, please contact us at .
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="md:flex-1 flipbox">
+			<div class="flipbox-inner">
+				<div class="flipbox-front bg-blue-300 border-2 border-blue-500 p-4 rounded-sm flex justify-center items-center flex-col min-h-[400px]">
+					<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-red-500 mb-3">Search Engine Optimization (SEO)</h3>
+				</div>
+				<div class="flipbox-back bg-blue-300 border-2 border-blue-500 p-4 rounded-sm">
+					<h4 class="font-semibold">5 ways to improve the visibility of your website on search engines.</h4>
+					<div class="flex flex-col mx-4">
+						<p>1. Crawl accessibility is important so that search engines can read the content of your website.</p>
+						<p>2. Having content that will be compelling to the users seach query.</p>
+						<p>3. A fast loading site that will provide a good user experience.</p>
+						<p>4. Make sure your website is mobile fiendly.</p>
+						<p>5. Make sure your website is accessible to all users.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="md:flex-1 flipbox">
+			<div class="flipbox-inner">
+				<div class="flipbox-front bg-blue-300 border-2 border-blue-500 p-4 rounded-sm flex justify-center items-center flex-col min-h-[400px]">
+					<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-amber-500 mb-3">Web Publishing</h3>
+				</div>
+				<div class="flipbox-back bg-blue-300 border-2 border-blue-500 p-4 rounded-sm">
+					<h4 class="font-semibold">3 Major factors to consider when choosing a web hosting provider.</h4>
+					<ul>
+						<li>
+							<h5>Average Uptime</h5>
+							<p class="text-gray-800 mx-2">As a customer you want your website to be available 24/7.</p>
+						</li>
+						<li>
+							<h5>The location of the server</h5>
+							<p class="text-gray-800 mx-2">This will affect network latency and how fast your website loads.</p>
+						</li>
+						<li>
+							<h5>Pricing</h5>
+							<p class="text-gray-800 mx-2">You wouldn't want to pay more than what you have too.</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="md:flex-1 flipbox">
+			<div class="flipbox-inner">
+				<div class="flipbox-front bg-blue-300 border-2 border-blue-500 p-4 rounded-sm flex justify-center items-center flex-col min-h-[400px]">
+					<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-emerald-500 mb-3">Web Performance & Maintenance</h3>
+				</div>
+				<div class="flipbox-back bg-blue-300 border-2 border-blue-500 p-4 rounded-sm">
+					<h4 class="font-semibold">Performance</h4>
+					<ul class="mx-4">
+						<li>Reduce the size of your images to match the dimensions they are displayed at.</li>
+						<li>Enable browser caching of your static content.</li>
+						<li>Minify CSS, JavaScript and HTML content.</li>
+					</ul>
+
+					<h4 class="font-semibold mt-2">Maintenance</h4>
+					<ul class="mx-4">
+						<li>Test your website and it's functionality regularly.</li>
+						<li>Make sure information is correct and up to date.</li>
+						<li>Make regular backups of your website.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="md:flex-1 flipbox">
+			<div class="flipbox-inner">
+				<div class="flipbox-front bg-blue-300 border-2 border-blue-500 p-4 rounded-sm flex justify-center items-center flex-col min-h-[400px]">
+					<h3 class="sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase text-violet-500 mb-3">Web security</h3>
+				</div>
+				<div class="flipbox-back bg-blue-300 border-2 border-blue-500 p-4 rounded-sm">
+					<h4 class="font-semibold">5 common cyber threats</h4>
+					<ul>
+						<li>
+							<h5>DOS & DDOS attacks</h5>
+							<p class="text-gray-800 text-sm mx-2">Denial of Service attacks can be prevented by using a service like <a href="https://www.cloudflare.com/" target="_blank" class="underline">Cloudflare</a></p>
+						</li>
+						<li>
+							<h5>MITM Attacks</h5>
+							<p class="text-gray-800 text-sm mx-2">Man In The Middle attacks can be prevented by enforcing https and setting up SSL certificates. <a href="https://letsencrypt.org" class="underline">letsencrypt</a> provide free SSL certificates.</p>
+						</li>
+						<li>
+							<h5>XSS</h5>
+							<p class="text-gray-800 text-sm mx-2">Cross Site Scripting can be mitigated by sanitising all user input.</p>
+						</li>
+						<li>
+							<h5>SQL Injection</h5>
+							<p class="text-gray-800 text-sm mx-2">Sanitising user input and using a seperate ORM library to manage the contrustion of SQL statements.</p>
+						</li>
+						<li>
+							<h5>General & Zero Day Exploits</h5>
+							<p class="text-gray-800 text-sm mx-2">The best and easiest thing anyone can do to stay safe online is to install the latest updates for the software you are using.</p>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

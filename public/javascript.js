@@ -52,27 +52,61 @@ const viewPage = (id) => {
 }
 
 const spacing = 12
-const maxRight = (4 - 1) * spacing
+const maxRight = 3
 var current = 0
+var lastSlideShowTime = 0
+const slideShowInterval = 4000
 
+if (window.location.pathname.indexOf('/javascript') == 0) {
+	// slideshow only needs to run on javascript page
+	setInterval(() => {
+		let now = new Date().getTime()
+		if (now - lastSlideShowTime > slideShowInterval) {
+			slideShowRight()
+			lastSlideShowTime = now
+		}
+	}, 1000);
+}
 
-const slideShowLeft = () => {
-	if (current == 0) {return}
-	current -= spacing
+const setTitleAndDescription = (i) => {
+	i = i || 0
+
+	// title
+	document.getElementById('slideshow-title').innerText = shopItems[i].name
+	// desc
+	document.getElementById('slideshow-desc').innerText = shopItems[i].description
+}
+
+const slideShowLeft = (e) => {
+	if (!e) {
+		lastSlideShowTime = new Date().getTime() + slideShowInterval
+	}
+	if (current == 0) {
+		current = maxRight
+	} else {
+		current -= 1
+	}
+
 	setLeftRight()
 }
-const slideShowRight = () => {
-	if (current == maxRight) {
-		return
+const slideShowRight = (e) => {
+	if (!e) {
+		lastSlideShowTime = new Date().getTime() + slideShowInterval
 	}
-	current += spacing
+	if (current == maxRight) {
+		current = 0
+	} else {
+		current += 1
+	}
 
 	setLeftRight()
 }
 
 const setLeftRight = () => {
-	document.querySelector('#slideshow').style.left = `-${current}rem`
-	document.querySelector('#slideshow').style.right = `${current}rem`
+	setTitleAndDescription(current)
+	let offset = current * (spacing)
+	document.querySelector('#slideshow').style.left = `-${offset}rem`
+	document.querySelector('#slideshow').style.right = `${offset}rem`
 }
 
 const loadShopItems = (itemsToShow) => {
@@ -100,6 +134,18 @@ const loadShopItems = (itemsToShow) => {
 
 		parentElement.appendChild(ele)
 	});
+}
+
+const loadSlideShow = () => {
+	shopItems.forEach(item => {
+		let ele = document.createElement('img')
+		ele.className = 'block w-48 h-48 px-2'
+		ele.src = item.image
+
+		document.querySelector('#slideshow').appendChild(ele)
+	})
+
+	setTitleAndDescription(0)
 }
 
 const shopSearchOnChange = (input) => {

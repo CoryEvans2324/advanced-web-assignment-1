@@ -12,7 +12,7 @@
 		<div id="demo1" style="display: block" class="w-full h-full bg-white rounded shadow p-4">
 			<!-- Slideshow -->
 			<div class="flex justify-center items-center">
-				<button onclick="slideShowLeft()" class="py-12 pl-12">
+				<button onclick="slideShowLeft(event)" class="py-12 pl-12">
 					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 						<polyline points="15 6 9 12 15 18"></polyline>
@@ -20,19 +20,22 @@
 				</button>
 				<div class="relative w-48 h-48 overflow-hidden">
 					<div id="slideshow" class="absolute top-0 bottom-0 flex flex-nowrap transition-all duration-200">
-						<img class="block w-48 h-48 px-2" src="images/tablets/tablet1.webp" alt="" />
-						<img class="block w-48 h-48 px-2" src="images/tablets/tablet2.webp" alt="" />
-						<img class="block w-48 h-48 px-2" src="images/tablets/tablet2.webp" alt="" />
-						<img class="block w-48 h-48 px-2" src="images/tablets/tablet3.webp" alt="" />
 					</div>
 				</div>
-				<button onclick="slideShowRight()" class="py-12 pr-12">
+				<button onclick="slideShowRight(event)" class="py-12 pr-12">
 					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
 						<polyline points="9 6 15 12 9 18"></polyline>
 					</svg>
 				</button>
 			</div>
+			<div class="flex flex-col items-center">
+				<h5 class="transition-all" id="slideshow-title">Title</h5>
+				<p class="transition-all" id="slideshow-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam rerum aut ut, saepe distinctio sapiente pariatur obcaecati iure quia cum.</p>
+			</div>
+			<script>
+				loadSlideShow();
+			</script>
 		</div>
 
 		<div id="demo2" style="display: none" class="w-full h-full bg-white rounded shadow p-4">
